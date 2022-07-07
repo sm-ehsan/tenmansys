@@ -5,3 +5,60 @@
 body{
     font-family: 'Montserrat', sans-serif;
 }
+
+
+// Sign in form
+
+.sessions_new{
+    padding: 5rem 0;
+    
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+    }
+
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"], [type="password_confirmation"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+.registrations_new{
+    padding: 5rem 0;
+
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+    }
+
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    #user_email, #user_password {
+        margin-bottom: -1px;
+        border-radius: 0;
+    }
+
+    .form-signin [type="password"] {
+        margin-bottom: 2rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
