@@ -13,9 +13,9 @@
       </ul>
       <div class="d-flex ms-lg-4">
         <% if user_signed_in? %>
-          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-secondary-outline' %>
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn btn-outline-secondary nav-link' %>
         <% else %>
-          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-secondary-outline' %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn btn-outline-secondary' %>
           <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning ms-3' %>
         <% end %>
       </div>
