@@ -1,125 +1,132 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // Generic STyling
-body{
-    font-family: 'Montserrat', sans-serif;
-    background: #f5f7fb;
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f5f7fb;
 }
 
-.fs-7{ font-size: 1rem !important; }
-.fs-8{ font-size: .85rem !important; }
-
-.navbar{
-    padding-top: 0;
-    padding-bottom: 0;
-    .show{
-        padding-bottom: .5rem;
-    }
+.fs-7 {
+  font-size: 1rem !important;
+}
+.fs-8 {
+  font-size: 0.85rem !important;
 }
 
-.navbar-toggler:focus{
-    box-shadow: none !important;
+.navbar-toggler:focus {
+  box-shadow: none !important;
 }
 
-.nav-link{
-    color: #4a4f57 !important;
-    font-size: .85rem;
-    font-weight: 500;
+.nav-link {
+  color: #4a4f57 !important;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
-
-
 
 // Sign in form
-.sessions_new{
-    padding: 5rem 0;
-    
-    .form-signin {
-        max-width: 330px;
-        padding: 15px;
-    }
+.sessions_new {
+  padding: 5rem 0;
 
-    .form-signin .form-floating:focus-within {
-        z-index: 2;
-    }
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+  }
 
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
 
-    .form-signin input[type="password"], [type="password_confirmation"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-signin input[type="password"],
+  [type="password_confirmation"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
-.registrations_new{
-    padding: 5rem 0;
+.registrations_new {
+  padding: 5rem 0;
 
-    .form-signin {
-        max-width: 330px;
-        padding: 15px;
-    }
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+  }
 
-    .form-signin .form-floating:focus-within {
-        z-index: 2;
-    }
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
 
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 
-    #user_email, #user_password {
-        margin-bottom: -1px;
-        border-radius: 0;
-    }
+  #user_email,
+  #user_password {
+    margin-bottom: -1px;
+    border-radius: 0;
+  }
 
-    .form-signin [type="password"] {
-        margin-bottom: 2rem;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
+  .form-signin [type="password"] {
+    margin-bottom: 2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
+// Dashboard
+.dashboard_index {
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    .show {
+      padding-bottom: 0.5rem;
+    }
+  }
 
-
+  .badge:empty{
+    display: inline-flex;
+  }
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-    .dashboard_index{
-        .main_header{
-            border-bottom: none !important;
-            
-        }
+  .dashboard_index {
+    .main_header {
+      border-bottom: none !important;
     }
+  }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .dashboard_index{
-        .main_header{
-            border-bottom: 1px solid #dee2e6 !important;
-            .navbar{
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
-        }
+  .dashboard_index {
+    .main_header {
+      border-bottom: 1px solid #dee2e6 !important;
+      .navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+      }
     }
-    
+  }
 }
 
 // X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {}
-  
+@media (min-width: 1400px) {
+}
