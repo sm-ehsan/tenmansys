@@ -1,0 +1,99 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="fs-8 fw-bold text-muted">Overview</div>
+          <h2 class="fs-7 fw-bold">Property</h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list">
+            <span class="">
+              <a href="#" class="btn btn-secondary btn-sm">New view</a>
+            </span>
+            <%= link_to 'Add Property', new_admin_property_path, class: 'btn btn-sm btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <seaction>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col">
+          <div class="card">
+            
+            <div class="card-header bg-white shadow-sm">
+              <h3 class="card-title fs-6 text-muted my-2">Property List</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <div id="properties">
+                  <table class="table table-striped table-hover fs-8 align-middle">
+                    <thead>
+                      <tr>
+                        <th class="w-1">ID. No.</th>
+                        <th>Property</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Contact</th>
+                        <th>Amount</th>
+                        <th>Landlord</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @properties.each do |property| %>
+                      <tr>
+                        <td>
+                          <span class="text-muted"><%= property.id %></span>
+                        </td>
+                        <td><%= property.name %></td>
+                        <td><%= property.addrline1 %></td>
+                        <td><%= property.city %></td>
+                        <td><%= property.contactno %></td>
+                        <td>
+                          <%= property.landlord %>
+                        </td>
+                        <td>$4500</td>
+                        <td class="text-end">
+                          <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                          <div class="dropdown-menu dropdown-menu-end fs-8">
+                            <%= link_to 'Details', admin_property_path(property), class: 'dropdown-item' %>
+                            <%= link_to 'Edit', edit_admin_property_path(property), class: 'dropdown-item' %>
+                          </div>
+                        </td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer d-flex align-items-center justify-content-between">
+              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
+              
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 fs-8">
+                  <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+</main>
+<%= render "shared/backend/footer" %>

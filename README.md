@@ -11,3 +11,19 @@ Things you may want to cover:
 * Rails version [rails 7.0.3]
 
 * Database [postgresql]
+
+
+# Application Organogram
+  * User [User, Admin]
+  * Property
+    * Property Name & Address
+    * Floor
+      * Units
+        * Name
+        * Description
+        * Amenities
+          * Single Room
+          * Double Room
+          * Tripple Room
+    * Tenant
+    * 

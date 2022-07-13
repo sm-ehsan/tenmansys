@@ -37,3 +37,4 @@ group :test do
 end
 
 gem 'devise'
+gem 'country_select', '~> 6.0'

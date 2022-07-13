@@ -1,0 +1,74 @@
+<%= form_with(model: [:admin, property]) do |form| %>
+  <% if property.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <%= form.text_field :name, class: "form-control", placeholder: 'Property Name' %>
+        <%= form.label :name, class: "form-label" %>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= form.text_field :landlord, class: "form-control", placeholder: 'Land Lord Name' %>
+        <%= form.label :landlord, 'Land Lord Name', class: "form-label" %>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= form.text_area :description, class: "form-control", placeholder: 'Property Description', style: "height: 100px"  %>
+        <%= form.label :description, class: "form-label" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <%= form.text_field :addrline1, class: "form-control", placeholder: 'Address Line 1'  %>
+        <%= form.label :addrline1, 'Addressline 1', class: "form-label" %>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= form.text_field :addrline2, class: "form-control", placeholder: 'Address Line 2'  %>
+        <%= form.label :addrline2, 'Addressline 2', class: "form-label" %>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <%= form.text_field :zipcode, class: "form-control", placeholder: 'Zip Code'  %>
+            <%= form.label :zipcode, 'Zip-Code', class: "form-label" %>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <%= form.text_field :city, class: "form-control", placeholder: 'City'  %>
+            <%= form.label :city, 'City', class: "form-label" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= form.country_select :country, {selected: "BD"}, {class: 'form-select form-select-sm'} %>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= form.text_field :contactno, class: "form-control", placeholder: 'Contact Number'  %>
+        <%= form.label :contactno, 'Contact Number', class: "form-label" %>
+      </div>
+
+      <div class="form-floating mb-3">
+        <%= form.submit(property.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-primary') %>
+      </div>
+    </div>
+  </div>
+<% end %>
