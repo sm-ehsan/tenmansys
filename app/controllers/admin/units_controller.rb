@@ -66,6 +66,6 @@ class Admin::UnitsController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def unit_params
-      params.require(:unit).permit(:name, :bedroom, :bathroom, :drawingroom, :dining, :kitchen, :property_id)
+      params.require(:unit).permit(:name, :bedroom, :bathroom, :drawingroom, :status, :dining, :kitchen, :property_id)
     end
 end

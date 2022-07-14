@@ -51,7 +51,7 @@
                         </td>
                         <td><%= unit.name %></td>
                         <td><%= unit.property.name %></td>
-                        <td><%= 'Occupied' %></td>
+                        <td><%= unit.status == true ? 'Occupied' : 'Vacent' %></td>
                         <td><%=  %></td>
                         <td>
                           <%=  %>

@@ -48,6 +48,11 @@
     <%= form.label :dining, class: 'form-check-label' %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :status, class: 'form-label' %>
+    <%= form.select(:status, options_for_select([['Occupied', true], ['Vacent', false]]), {}, {class: 'form-select'}) %>
+  </div>
+
   <div>
     <%= form.submit( @unit.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-success') %>
   </div>

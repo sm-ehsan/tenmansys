@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_203510) do
     t.boolean "drawingroom"
     t.boolean "dining"
     t.integer "kitchen"
+    t.boolean "status"
     t.bigint "user_id", null: false
     t.bigint "property_id", null: false
     t.datetime "created_at", null: false
