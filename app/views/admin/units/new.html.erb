@@ -6,14 +6,13 @@
       <div class="row">
         <div class="col">
           <!-- Page pre-title -->
-          <div class="fs-8 fw-bold text-muted">Editing</div>
-          <h2 class="fs-7 fw-bold"><%= @property.name %></h2>
+          <div class="fs-8 fw-bold text-muted">Add</div>
+          <h2 class="fs-7 fw-bold">New Unit</h2>
         </div>
         <!-- Page title actions -->
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
-          <div class="btn-list d-flex">
-            <%= link_to 'Show Property', admin_property_path(@property), class: 'btn btn-sm btn-primary me-2' %>
-            <%= link_to 'Back', admin_properties_path, class: 'btn btn-sm btn-warning me-2' %>
+          <div class="btn-list">
+            <%= link_to 'Back To All Units', admin_units_path, class: 'btn btn-sm btn-warning' %>
           </div>
         </div>
       </div>
@@ -22,11 +21,11 @@
 
   <seaction>
     <div class="container">
-      <div class="row mt-3 mb-5">
+      <div class="row mb-3">
         <div class="col">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-body">
-              <%= render "form", property: @property %>
+              <%= render "form", unit: @unit %>
             </div>
           </div>
         </div>

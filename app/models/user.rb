@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :units
   has_many :properties
   
   # Include default devise modules. Others available are:

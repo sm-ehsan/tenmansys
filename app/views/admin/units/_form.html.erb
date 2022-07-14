@@ -1,0 +1,54 @@
+<%= form_with(model: [:admin, unit]) do |form| %>
+  <% if unit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+        <% unit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :property, 'Select Property', class: 'form-label' %>
+    <%= form.select(:property_id, Property.all.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-select' }) %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :name, 'Unit Name', class: 'form-label' %>
+    <%= form.text_field :name, class: "form-control", placeholder: 'Unit Name' %>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <%= form.label :bedroom, 'Number of Bedrooms', class: 'form-label' %>
+      <%= form.number_field :bedroom, class: "form-control", placeholder: 'Bed Rooms' %>
+    </div>
+
+    <div class="col mb-3">
+      <%= form.label :bathroom, 'Number of Bath Rooms', class: 'form-label' %>
+      <%= form.number_field :bathroom, class: "form-control", placeholder: 'Bath Rooms' %>
+    </div>
+
+    <div class="col mb-3">
+      <%= form.label :kitchen, 'Number of Kitchens', class: 'form-label' %>
+      <%= form.number_field :kitchen, class: "form-control", placeholder: 'Kitchens' %>
+    </div>
+  </div>
+
+  <div class="form-check form-check-inline mb-3">
+    <%= form.check_box :drawingroom, class: "form-check-input", placeholder: 'Drawing Rooms' %>
+    <%= form.label :drawingroom, class: 'form-check-label' %>
+  </div>
+
+  <div class="form-check form-check-inline mb-3">
+    <%= form.check_box :dining, class: "form-check-input", placeholder: 'Dining Rooms' %>
+    <%= form.label :dining, class: 'form-check-label' %>
+  </div>
+
+  <div>
+    <%= form.submit( @unit.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-success') %>
+  </div>
+<% end %>

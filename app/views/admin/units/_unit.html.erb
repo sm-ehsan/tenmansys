@@ -1,0 +1,37 @@
+<div id="<%= dom_id unit %>">
+  <p>
+    <strong>Name:</strong>
+    <%= unit.name %>
+  </p>
+
+  <p>
+    <strong>Bedroom:</strong>
+    <%= unit.bedroom %>
+  </p>
+
+  <p>
+    <strong>Bathroom:</strong>
+    <%= unit.bathroom %>
+  </p>
+
+  <p>
+    <strong>Drawing Room:</strong>
+    <%= unit.drawingroom == true ? 'Yes' : 'No' %>
+  </p>
+
+  <p>
+    <strong>Dining:</strong>
+    <%= unit.dining == true ? 'Yes' : 'No' %>
+  </p>
+
+  <p>
+    <strong>Kitchen:</strong>
+    <%= unit.kitchen %>
+  </p>
+
+  <p>
+    <strong>Property:</strong>
+    <%= unit.property.name %>
+  </p>
+
+</div>
