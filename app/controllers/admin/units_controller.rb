@@ -3,7 +3,7 @@ class Admin::UnitsController < Admin::ApplicationController
 
   # GET /units or /units.json
   def index
-    @units = Unit.all
+    @units = Unit.all.order("Created_at ASC")
   end
 
   # GET /units/1 or /units/1.json

@@ -42,19 +42,16 @@
 								<%= link_to 'Home', admin_path, class: 'nav-link' %>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Interface</a>
+								<%= link_to 'Properties', admin_properties_path, class: 'nav-link' %>
 							</li>
 							<li class="nav-item">
-								<%= link_to 'All Properties', admin_properties_path, class: 'nav-link' %>
+								<%= link_to 'Units', admin_units_path, class: 'nav-link' %>
 							</li>
 							<li class="nav-item">
-								<%= link_to 'All Units', admin_units_path, class: 'nav-link' %>
+								<%= link_to 'Tenants', admin_tenants_path, class: 'nav-link' %>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Layouts</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Help & Support</a>
+								<%= link_to 'Help & Support', '', class: 'nav-link' %>
 							</li>
 						</ul>
 						<form class="d-flex" role="search">

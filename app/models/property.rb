@@ -1,4 +1,5 @@
 class Property < ApplicationRecord
+  has_many :tenants
   has_many :units
   belongs_to :user
 

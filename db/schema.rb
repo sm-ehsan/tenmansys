@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_203510) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_14_054832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_203510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
+  create_table "tenants", force: :cascade do |t|
+    t.string "name"
+    t.string "nid"
+    t.string "email"
+    t.string "mobile"
+    t.string "peraddrline1"
+    t.string "peraddrline2"
+    t.string "peraddrline3"
+    t.string "zipcode"
+    t.string "city"
+    t.string "country"
+    t.date "entrydate"
+    t.date "exitdate"
+    t.decimal "rentpermonth"
+    t.decimal "advancepaid"
+    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
+    t.bigint "unit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_tenants_on_property_id"
+    t.index ["unit_id"], name: "index_tenants_on_unit_id"
+    t.index ["user_id"], name: "index_tenants_on_user_id"
   end
 
   create_table "units", force: :cascade do |t|
@@ -61,6 +87,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_203510) do
   end
 
   add_foreign_key "properties", "users"
+  add_foreign_key "tenants", "properties"
+  add_foreign_key "tenants", "units"
+  add_foreign_key "tenants", "users"
   add_foreign_key "units", "properties"
   add_foreign_key "units", "users"
 end

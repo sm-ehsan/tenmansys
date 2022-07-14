@@ -7,15 +7,12 @@
         <div class="col">
           <!-- Page pre-title -->
           <div class="fs-8 fw-bold text-muted">Overview</div>
-          <h2 class="fs-7 fw-bold">Property</h2>
+          <h2 class="fs-7 fw-bold">Tenant</h2>
         </div>
         <!-- Page title actions -->
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
           <div class="btn-list">
-            <span class="">
-              <a href="#" class="btn btn-secondary btn-sm">New view</a>
-            </span>
-            <%= link_to 'Add Property', new_admin_property_path, class: 'btn btn-sm btn-primary' %>
+            <%= link_to 'Add Tenant', new_admin_tenant_path, class: 'btn btn-sm btn-primary' %>
           </div>
         </div>
       </div>
@@ -29,7 +26,7 @@
           <div class="card">
             
             <div class="card-header bg-white shadow-sm">
-              <h3 class="card-title fs-6 text-muted my-2">Property List</h3>
+              <h3 class="card-title fs-6 text-muted my-2">Tenant List</h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -38,31 +35,30 @@
                     <thead>
                       <tr>
                         <th class="w-1">ID. No.</th>
-                        <th>Property</th>
+                        <th>Name</th>
                         <th>Address</th>
-                        <th>City</th>
-                        <th>Contact</th>
-                        <th>Landlord</th>
-                        <th>Amount</th>
+                        <th>mobile</th>
+                        <th>entrydate</th>
+                        <th>RPM</th>
+                        <th>Status</th>
+                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <% @properties.each do |property| %>
+                      <% @tenants.each do |tenant| %>
                       <tr>
                         <td>
-                          <span class="text-muted"><%= property.id %></span>
+                          <span class="text-muted"><%= tenant.id %></span>
                         </td>
-                        <td><%= property.name %></td>
-                        <td><%= property.addrline1 %></td>
-                        <td><%= property.city %></td>
-                        <td><%= property.contactno %></td>
-                        <td>
-                          <%= property.landlord %>
-                        </td>
-                        <td>$4500</td>
+                        <td><%= tenant.name %></td>
+                        <td><%= tenant.peraddrline1 %></td>
+                        <td><%= tenant.mobile %></td>
+                        <td><%= tenant.entrydate %></td>
+                        <td><%= tenant.rentpermonth %></td>
+                        <td><%= tenant.status == true ? 'Active' : 'Close' %></td>
                         <td class="text-end">
-                          <%= link_to 'Details', admin_property_path(property), class: 'btn btn-sm btn-primary fs-8' %>
-                          <%= link_to 'Edit', edit_admin_property_path(property), class: 'btn btn-sm btn-primary fs-8' %>
+                          <%= link_to 'Details', admin_tenant_path(tenant), class: 'btn btn-sm btn-primary fs-8' %>
+                          <%= link_to 'Edit', edit_admin_tenant_path(tenant), class: 'btn btn-sm btn-primary fs-8' %>
                         </td>
                       </tr>
                       <% end %>

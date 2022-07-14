@@ -1,0 +1,132 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="fs-8 fw-bold text-muted">Overview</div>
+          <h2 class="fs-7 fw-bold"><%= @tenant.name %></h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list d-flex">
+            <%= link_to 'Edit Tenant', edit_admin_tenant_path, class: 'btn btn-sm btn-primary me-2' %>
+            <%= link_to 'Back', admin_tenants_path, class: 'btn btn-sm btn-warning me-2' %>
+
+            <%= button_to "Destroy this Tenant", admin_tenant_path(@tenant), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <seaction>
+    <div class="container">
+      <div class="row mt-3 mb-5">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4"><strong>Name</strong></div>
+                <div class="col-md-8"><%= @tenant.name %></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>National ID No.</strong></div>
+                <div class="col-md-8"><%= @tenant.nid %></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Permanent Address</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.peraddrline1 %>,
+                  <%= @tenant.peraddrline2 %>,
+                  <% unless @tenant.peraddrline3.empty? %>
+                    <%= @tenant.peraddrline3 %>,
+                  <% end %>
+                  <%= @tenant.zipcode %>,
+                  <%= @tenant.city %>,
+                  <%= @tenant.country %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Email Address</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.email %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Mobile Number</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.mobile %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4"><strong>Entry Date</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.entrydate.strftime('%b %d, %Y') %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Exit Date</strong></div>
+                <div class="col-md-8">
+                  <% unless @tenant.exitdate.nil? %>
+                    <%= @tenant.exitdate.strftime('%b %d, %Y') %>
+                  <% end %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Rent Per Month</strong></div>
+                <div class="col-md-8">
+                  <%= number_to_currency(@tenant.rentpermonth) %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Advance Paid</strong></div>
+                <div class="col-md-8">
+                  <%= number_to_currency(@tenant.advancepaid) %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Status</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.status == true ? 'Active' : 'Close' %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Property</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.property.name %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4"><strong>Unit</strong></div>
+                <div class="col-md-8">
+                  <%= @tenant.unit.name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+</main>
+<%= render "shared/backend/footer" %>
