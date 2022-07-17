@@ -1,0 +1,45 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="fs-8 fw-bold text-muted">Overview</div>
+          <h2 class="fs-7 fw-bold"><%= @rent.tenant.name %></h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list d-flex">
+            <%= link_to 'Edit Property', edit_admin_rent_path, class: 'btn btn-sm btn-primary me-2' %>
+            <%= link_to 'Back', admin_rents_path, class: 'btn btn-sm btn-warning me-2' %>
+
+            <%= button_to "Destroy this rent", admin_rent_path(@rent), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <seaction>
+    <div class="container">
+      <div class="row mt-3 mb-5">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="table-responsive">
+                <div id="properties">
+                  <%= render @rent %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+</main>
+<%= render "shared/backend/footer" %>

@@ -1,0 +1,108 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="fs-8 fw-bold text-muted">Overview</div>
+          <h2 class="fs-7 fw-bold">Rents</h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list">
+            <%= link_to 'Add Rent', new_admin_rent_path, class: 'btn btn-sm btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <seaction>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col">
+          <div class="card">
+            
+            <div class="card-header bg-white shadow-sm">
+              <h3 class="card-title fs-6 text-muted my-2">Rent List</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <div id="properties">
+                  <table class="table table-striped table-hover fs-8 align-middle">
+                    <thead>
+                      <tr>
+                        <th class="w-1">ID. No.</th>
+                        <th>Tenant</th>
+                        <th>Month</th>
+                        <th>Paid Amount</th>
+                        <th>Gas</th>
+                        <th>Light</th>
+                        <th>Status</th>
+                        <th>Payment Date</th>
+                        <th class="text-end">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @rents.each do |rent| %>
+                      <tr>
+                        <td>
+                          <span class="text-muted"><%= rent.id %></span>
+                        </td>
+                        <td><%= rent.tenant.name %></td>
+                        <td><%= rent.rentmonth.strftime('%b %Y') %></td>
+                        <td><%= rent.rent %></td>
+                        <td>
+                          <% if rent.gassbill.present? && rent.gassbill > 0 %>
+                            <%= 'Paid' %>
+                          <% else %>
+                            <%= 'Due'  %>
+                          <% end %>
+                        </td>
+                        <td>
+                          <% if rent.lightbill.present? && rent.lightbill > 0 %>
+                            <%= 'Paid' %>
+                          <% else %>
+                            <%= 'Due'  %>
+                          <% end %>
+                        </td>
+                        <td><%= rent.status == true ? 'Paid' : 'Due' %></td>
+                        <td>
+                          <%= rent.paymentdate.strftime('%d %b, %Y') %>
+                        </td>
+                        <td class="text-end">
+                          <%= link_to 'Details', admin_rent_path(rent), class: 'btn btn-sm btn-primary fs-8' %>
+                          <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'btn btn-sm btn-primary fs-8' %>
+                        </td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer d-flex align-items-center justify-content-between">
+              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
+              
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 fs-8">
+                  <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+</main>
+<%= render "shared/backend/footer" %>

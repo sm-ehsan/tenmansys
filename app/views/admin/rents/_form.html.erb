@@ -1,0 +1,94 @@
+<%= form_with(model: [:admin, rent]) do |form| %>
+  <% if rent.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
+
+      <ul>
+        <% rent.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="mb-3">
+    <%= form.label :tenant_id, class: 'form-label' %>
+    <%= form.select(:tenant_id, Tenant.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col mb-3">
+      <%= form.label :rentmonth, 'Rent Month', class: 'form-label' %>
+      <div class="d-flex">
+        <%= form.date_select :rentmonth, {discard_day: true}, {class: 'form-select'} %>
+      </div>
+    </div>
+
+    <div class="col">
+      <%= form.label :duedate, 'Due Date', class: 'form-label' %>
+      <%= form.date_field :duedate, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :paymentdate, 'Payment Date', class: 'form-label' %>
+      <%= form.date_field :paymentdate, class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <%= form.label :rent, 'Rent', class: 'form-label' %>
+      <%= form.text_field :rent, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :gassbill, 'Gass Bill', class: 'form-label' %>
+      <%= form.text_field :gassbill, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :lightbill, 'Light Bill', class: 'form-label' %>
+      <%= form.text_field :lightbill, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :servicecharge, 'Service Charge', class: 'form-label' %>
+      <%= form.text_field :servicecharge, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col">
+      <%= form.label :paymentmode, 'Payment Mode', class: 'form-label' %>
+      <%= form.select :paymentmode, options_for_select(Rent.paymentmodes.map {|key, value| [key.titleize, Rent.paymentmodes.key(value)]}, @rent.paymentmode), {}, {class: 'form-select'} %>
+      <%#= form.select :payment_type, options_for_select(Vendor.payment_types.map {|key, value| [key.titleize, Vendor.payment_types.key(value)]}, @vendor.payment_type) %>
+    </div>
+
+    <div class="col">
+      <%= form.label :bankname, 'Bank Name', class: 'form-label' %>
+      <%= form.text_field :bankname, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :accountnumber, 'Account Number', class: 'form-label' %>
+      <%= form.text_field :accountnumber, class: 'form-control' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :refnumber, 'Reference Number', class: 'form-label' %>
+      <%= form.text_field :refnumber, class: 'form-control' %>
+    </div>
+  </div>
+  
+
+  <div>
+    <%= form.label :status, class: 'form-label' %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div>
+    <%= form.submit(@rent.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-primary px-5') %>
+  </div>
+<% end %>

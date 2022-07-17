@@ -105,12 +105,12 @@
   <div class="row g-2">
     <div class="col mb-3">
       <%= form.label :property_id, class: 'form-check-label mb-2' %>
-      <%= form.select(:property_id, Property.all.collect{ |p| [p.name, p.id] }, {}, {class: 'form-select'}) %>
+      <%= form.select(:property_id, Property.all.collect{ |p| [p.name, p.id] }, {}, {class: 'form-select form-select-sm'}) %>
     </div>
 
     <div class="col mb-3">
       <%= form.label :unit_id, class: 'form-check-label mb-2' %>
-      <%= form.select(:unit_id, Unit.all.collect{|p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+      <%= form.grouped_collection_select(:unit_id, Property.order(:name), :units, :name, :id, :name, {}, {class: 'form-select form-select-sm'}) %>
     </div>
   </div>
 

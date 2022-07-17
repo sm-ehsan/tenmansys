@@ -1,0 +1,121 @@
+<div id="<%= dom_id rent %>">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="d-flex flex-column ms-3 my-2">
+                  <span class="font-weight-bold">Rent Details</span> 
+                  <small>INV-<%= rent.id %></small>
+                </div>
+                
+                <hr class="my-0">
+                
+                <div class="table-responsive p-2">
+                  <table class="table table-borderless mb-0">
+                    <tbody>
+                      <tr class="content">
+                        <td class="font-weight-bold">
+                          <%= rent.tenant.name %> 
+                          <br>
+                          <%= rent.tenant.unit.name %>,
+                          <br>
+                          <%= rent.tenant.property.name %>, <%= rent.tenant.property.addrline1 %>
+                          <br>
+                          <%= rent.tenant.property.addrline2 %>, <%= rent.tenant.property.city %>
+                          <br>
+                          <%= rent.tenant.mobile %>
+                        </td>
+                        <td class="text-end">
+                          Rent Month: <strong><%= rent.rentmonth.strftime("%b %Y") %></strong>
+                          <br>
+                          Due Date: <strong><%= rent.duedate.strftime("%b %d, %Y")  %></strong>
+                          <br>
+                          Payment Date: <strong><%= rent.paymentdate.strftime("%b %d, %Y")  %></strong>
+                          <br>
+                          Status: <strong><%= rent.status == true ? 'Paid' : 'Due' %></strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <hr class="my-0">
+                
+                <div class="products p-2">
+                  <table class="table table-sm table-striped table-borderless mb-0">
+                    <thead>
+                      <tr class="add">
+                        <th>Description</th>
+                        <th class="w-25">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="content">
+                          <td><strong><%= 'Rent' %></strong></td>
+                          <td><%= number_to_currency(rent.rent, unit: 'BDT. ') %></td>
+                        </tr>
+                        <tr class="content">
+                          <td><strong><%= 'Gass Bill' %></strong></td>
+                          <td><%= number_to_currency(rent.gassbill, unit: 'BDT. ') %></td>
+                        </tr>
+                        <tr class="content">
+                          <td><strong><%= 'Light Bill' %></strong></td>
+                          <td><%= number_to_currency(rent.lightbill, unit: 'BDT. ') %></td>
+                        </tr>
+                        <tr class="content">
+                          <td><strong><%= 'Service Charge' %></strong></td>
+                          <td><%= number_to_currency(rent.servicecharge, unit: 'BDT. ') %></td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <hr class="my-0">
+                
+                <div class="products p-2">
+                  <table class="table table-borderless mb-0">
+                    <tbody>
+                      <tr class="add">
+                        <td><strong>Total</strong></td>
+                        <td class="w-25 p-1">
+                          <strong style="text-decoration-line: underline; text-decoration-style: double;">
+                            <%= number_to_currency(rent.renttotal, unit: 'BDT. ') %>
+                          </strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <hr class="my-0">
+                
+                <div class="address p-2">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr class="mb-0">
+                                <td>Mode Of Payment: <strong><span class="text-uppercase"><%= rent.paymentmode %></span></strong></td>
+                            </tr>
+                            <tr class="content">
+                                <td> 
+                                  <%if rent.bank? %>
+                                    Bank Name : <%= rent.bankname %>
+                                    <br>
+                                  <% end %>
+                                  <% if rent.accountnumber? %>
+                                  Account Number : <%= rent.accountnumber %>
+                                    <% end %>
+                                    <br>
+                                  <% if rent.refnumber? %>
+                                    Reference Number : <%= rent.refnumber %>
+                                    <br>
+                                  <% end %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

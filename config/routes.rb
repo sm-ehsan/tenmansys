@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :rents
     resources :tenants
     resources :units
     resources :properties
