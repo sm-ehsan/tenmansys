@@ -62,7 +62,7 @@
                           <% end %>
                         </td>
                         <td>
-                          <% if rent.lightbill.present? && rent.lightbill > 0 %>
+                          <% if rent.lightbill.present? %>
                             <%= 'Paid' %>
                           <% else %>
                             <%= 'Due'  %>

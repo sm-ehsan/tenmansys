@@ -165,7 +165,7 @@
                   <i class="fa-solid fa-circle-exclamation display-5 text-danger"></i>
                 </div>
                 <div class="col">
-                  <span class="fs-8 text-muted">Due Payment</span>
+                  <span class="fs-8 text-muted">Payment Due</span>
                   <span class="fs-7 fw-bold">25,000.00</span>
                 </div>
               </div>
@@ -193,6 +193,7 @@
                       <th class="w-1">ID. No.</th>
                       <th>Client</th>
                       <th>Contact No.</th>
+                      <th>Rent Month</th>
                       <th>Payment Date</th>
                       <th>Status</th>
                       <th>Amount</th>
@@ -200,120 +201,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% @rents.each do |rent| %>
                     <tr>
-                      <td><span class="text-muted">EM-101</span></td>
-                      <td>Carlson Limited</td>
-                      <td>01711-972177</td>
-                      <td>15 Dec 2017</td>
+                      <td><span class="text-muted"><%= rent.id %></span></td>
+                      <td><%= rent.tenant.name %></td>
+                      <td><%= rent.tenant.mobile %></td>
+                      <td><%= rent.rentmonth.strftime('%b %Y') %></td>
+                      <td><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
                       <td>
-                        <span class="badge bg-success me-1"></span> 
-                        Paid
+                        <% if rent.status == true %>
+                          <span class="badge bg-success me-1">Paid</span>
+                        <% else %>
+                          <span class="badge bg-danger me-1">Due</span>
+                        <% end %>
                       </td>
-                      <td>$4500</td>
+                      <td><%= number_to_currency(rent.renttotal, unit: 'BDT. ') %></td>
                       <td class="text-end">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
                         <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
+                          <%= link_to 'View', admin_rent_path(rent), class: 'dropdown-item' %>
+                          <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
                         </div>
                       </td>
                     </tr>
-
-                    <tr>
-                      <td><span class="text-muted">EM-101</span></td>
-                      <td>Carlson Limited</td>
-                      <td>01711-972177</td>
-                      <td>15 Dec 2017</td>
-                      <td>
-                        <span class="badge bg-success me-1"></span> 
-                        Paid
-                      </td>
-                      <td>$4500</td>
-                      <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td><span class="text-muted">EM-101</span></td>
-                      <td>Carlson Limited</td>
-                      <td>01711-972177</td>
-                      <td>15 Dec 2017</td>
-                      <td>
-                        <span class="badge bg-success me-1"></span> 
-                        Paid
-                      </td>
-                      <td>$4500</td>
-                      <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td><span class="text-muted">EM-101</span></td>
-                      <td>Carlson Limited</td>
-                      <td>01711-972177</td>
-                      <td>15 Dec 2017</td>
-                      <td>
-                        <span class="badge bg-success me-1"></span> 
-                        Paid
-                      </td>
-                      <td>$4500</td>
-                      <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td><span class="text-muted">EM-101</span></td>
-                      <td>Carlson Limited</td>
-                      <td>01711-972177</td>
-                      <td>15 Dec 2017</td>
-                      <td>
-                        <span class="badge bg-success me-1"></span> 
-                        Paid
-                      </td>
-                      <td>$4500</td>
-                      <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                        <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
+                    <% end %>
                   </tbody>
                 </table>
               </div>
