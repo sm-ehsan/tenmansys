@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="d-flex flex-column ms-3 my-2">
                   <span class="font-weight-bold">Rent Details</span> 
-                  <small>INV-<%= rent.id %></small>
+                  <small>INV-<%= (rent.present? ? ("%.3i" %(rent.id + 1)) : "%.3i" %(1)) %></small>
                 </div>
                 
                 <hr class="my-0">
@@ -79,7 +79,7 @@
                         <td><strong>Total</strong></td>
                         <td class="w-25 p-1">
                           <strong style="text-decoration-line: underline; text-decoration-style: double;">
-                            <%= number_to_currency(rent.renttotal, unit: 'BDT. ') %>
+                            <%= number_to_currency(rent.total, unit: 'BDT. ') %>
                           </strong>
                         </td>
                       </tr>

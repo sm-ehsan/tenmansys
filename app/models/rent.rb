@@ -1,11 +1,13 @@
 class Rent < ApplicationRecord
   belongs_to :user
   belongs_to :tenant
+  before_save :calculate_total
 
   enum paymentmode: [:bank, :cash, :bkash, :nagad, :rocket, :cellfin]
 
-  def renttotal
-    self.rent.to_s.to_d + self.gassbill.to_s.to_d + self.lightbill.to_s.to_d + self.servicecharge.to_s.to_d
+  def calculate_total
+    renttotal = self.rent + self.gassbill + self.lightbill + self.servicecharge
+    self.total = renttotal
   end
 
   validates :rent, presence: true

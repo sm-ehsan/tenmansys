@@ -34,15 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.date "rentmonth"
     t.date "duedate"
     t.date "paymentdate"
-    t.decimal "rent"
-    t.decimal "gassbill"
-    t.decimal "lightbill"
-    t.decimal "servicecharge"
+    t.decimal "rent", precision: 8, scale: 2
+    t.decimal "gassbill", precision: 8, scale: 2
+    t.decimal "lightbill", precision: 8, scale: 2
+    t.decimal "servicecharge", precision: 8, scale: 2
     t.boolean "status"
     t.integer "paymentmode"
     t.string "bankname"
     t.string "accountnumber"
     t.string "refnumber"
+    t.decimal "total", precision: 8, scale: 2
     t.bigint "user_id", null: false
     t.bigint "tenant_id", null: false
     t.datetime "created_at", null: false

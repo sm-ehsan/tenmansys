@@ -55,17 +55,17 @@
                         <td><%= rent.rentmonth.strftime('%b %Y') %></td>
                         <td><%= rent.rent %></td>
                         <td>
-                          <% if rent.gassbill.present? && rent.gassbill > 0 %>
-                            <%= 'Paid' %>
+                          <% if rent.gassbill.present? %>
+                            <span class="badge bg-success"><%= 'Paid' %></span>
                           <% else %>
-                            <%= 'Due'  %>
+                            <span class="badge bg-danger"><%= 'Due'  %></span>
                           <% end %>
                         </td>
                         <td>
                           <% if rent.lightbill.present? %>
-                            <%= 'Paid' %>
+                            <span class="badge bg-success"><%= 'Paid' %></span>
                           <% else %>
-                            <%= 'Due'  %>
+                            <span class="badge bg-danger"><%= 'Due'  %></span>
                           <% end %>
                         </td>
                         <td><%= rent.status == true ? 'Paid' : 'Due' %></td>

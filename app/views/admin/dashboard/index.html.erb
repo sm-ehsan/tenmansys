@@ -118,7 +118,13 @@
                 </div>
                 <div class="col">
                   <div class="fs-8 text-muted">Total Payment</div>
-                  <div class="fs-7 fw-bold">75,000.00</div>
+                  <div class="fs-7 fw-bold">
+                    <% running_total = 0 %>
+                    <% Rent.all.each do |rent| %>
+                      <% running_total = running_total + rent.total %>
+                    <% end %>
+                    <%= number_to_currency(running_total, unit: 'BDT. ') %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -215,7 +221,7 @@
                           <span class="badge bg-danger me-1">Due</span>
                         <% end %>
                       </td>
-                      <td><%= number_to_currency(rent.renttotal, unit: 'BDT. ') %></td>
+                      <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
                       <td class="text-end">
                         <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
                         <div class="dropdown-menu dropdown-menu-end fs-8">
