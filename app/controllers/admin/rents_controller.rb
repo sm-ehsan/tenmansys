@@ -3,7 +3,7 @@ class Admin::RentsController < Admin::ApplicationController
 
   # GET /rents or /rents.json
   def index
-    @rents = Rent.all
+    @rents = Rent.all.order("Created_at DESC")
   end
 
   # GET /rents/1 or /rents/1.json

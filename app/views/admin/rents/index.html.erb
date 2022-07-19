@@ -49,7 +49,9 @@
                       <% @rents.each do |rent| %>
                       <tr>
                         <td>
-                          <span class="text-muted"><%= rent.id %></span>
+                          <span class="text-muted">
+                            RID-<%= rent.present? ? "%.6i"%(rent.id + 1) : "%.6i"%(1) %>
+                          </span>
                         </td>
                         <td><%= rent.tenant.name %></td>
                         <td><%= rent.rentmonth.strftime('%b %Y') %></td>
@@ -68,7 +70,13 @@
                             <span class="badge bg-danger"><%= 'Due'  %></span>
                           <% end %>
                         </td>
-                        <td><%= rent.status == true ? 'Paid' : 'Due' %></td>
+                        <td>
+                          <% if rent.status %>
+                            <span class="badge bg-success"><%= 'Paid' %></span>
+                          <% else %>
+                            <span class="badge bg-danger"><%= 'Due'  %></span>
+                          <% end %>
+                        </td>
                         <td>
                           <%= rent.paymentdate.strftime('%d %b, %Y') %>
                         </td>

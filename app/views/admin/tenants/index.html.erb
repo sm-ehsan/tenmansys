@@ -48,14 +48,22 @@
                       <% @tenants.each do |tenant| %>
                       <tr>
                         <td>
-                          <span class="text-muted"><%= tenant.id %></span>
+                          <span class="text-muted">
+                            TID-<%= tenant.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= tenant.present? ? "%.3i"%(tenant.id + 1) : "%.2i"%(1) %>
+                          </span>
                         </td>
                         <td><%= tenant.name %></td>
                         <td><%= tenant.peraddrline1 %></td>
                         <td><%= tenant.mobile %></td>
                         <td><%= tenant.entrydate %></td>
                         <td><%= tenant.rentpermonth %></td>
-                        <td><%= tenant.status == true ? 'Active' : 'Close' %></td>
+                        <td>
+                          <% if tenant.status == true %>
+                            <span class="badge bg-success">Active</span>
+                          <% else %>
+                            <span class="badge bg-danger">Close</span>
+                          <% end %>
+                        </td>
                         <td class="text-end">
                           <%= link_to 'Details', admin_tenant_path(tenant), class: 'btn btn-sm btn-primary fs-8' %>
                           <%= link_to 'Edit', edit_admin_tenant_path(tenant), class: 'btn btn-sm btn-primary fs-8' %>

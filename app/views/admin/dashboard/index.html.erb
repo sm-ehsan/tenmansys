@@ -10,6 +10,7 @@
           <h2 class="fs-7 fw-bold">Dashboard</h2>
         </div>
         <!-- Page title actions -->
+        <%# 
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
           <div class="btn-list">
             <span class="">
@@ -19,13 +20,15 @@
               Create new report
             </a>
           </div>
-        </div>
+        </div> 
+        %>
       </div>
     </div>
   </section>
 
   <section class="cards mb-3">
     <div class="container">
+      <%#
       <div class="row mb-3">
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
@@ -107,6 +110,7 @@
           </div>
         </div>
       </div>
+      %>
 
       <div class="row">
         <div class="col-md-3">
@@ -140,23 +144,7 @@
                 </div>
                 <div class="col">
                   <div class="fs-8 text-muted">Total Tenant</div>
-                  <div class="fs-7 fw-bold">20</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card mb-2 shadow-sm">
-            <div class="card-body">
-              <div class="row align-items-center">  
-                <div class="col-auto">
-                  <i class="fa-solid fa-user-shield display-5 text-warning"></i>
-                </div>
-                <div class="col">
-                  <div class="fs-8 text-muted">Active Tenant</div>
-                  <div class="fs-7 fw-bold">20</div>
+                  <div class="fs-7 fw-bold"><%= @tenants.all.count %></div>
                 </div>
               </div>
             </div>
@@ -171,8 +159,24 @@
                   <i class="fa-solid fa-circle-exclamation display-5 text-danger"></i>
                 </div>
                 <div class="col">
-                  <span class="fs-8 text-muted">Payment Due</span>
-                  <span class="fs-7 fw-bold">25,000.00</span>
+                  <div class="fs-8 text-muted">Vacent Unit</div>
+                  <div class="fs-7 fw-bold"><%= @units.vacent.count %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-user-shield display-5 text-warning"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Occupied Unit</div>
+                  <div class="fs-7 fw-bold"><%= @units.occupied.count %></div>
                 </div>
               </div>
             </div>
@@ -209,7 +213,11 @@
                   <tbody>
                     <% @rents.each do |rent| %>
                     <tr>
-                      <td><span class="text-muted"><%= rent.id %></span></td>
+                      <td>
+                        <span class="text-muted">
+                          RID-<%= rent.present? ? "%.6i"%(rent.id + 1) : "%.6i"%(1) %>
+                        </span>
+                      </td>
                       <td><%= rent.tenant.name %></td>
                       <td><%= rent.tenant.mobile %></td>
                       <td><%= rent.rentmonth.strftime('%b %Y') %></td>

@@ -38,25 +38,25 @@
                         <th>name</th>
                         <th>Property</th>
                         <th>Status</th>
-                        <th>Contact</th>
-                        <th>Amount</th>
-                        <th>Landlord</th>
                       </tr>
                     </thead>
                     <tbody>
                       <% @units.each do |unit| %>
                       <tr>
                         <td>
-                          <span class="text-muted"><%= unit.id %></span>
+                          <span class="text-muted">
+                            UID-<%= unit.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= unit.present? ? "%.3i"%(unit.id + 1) : "%.3i"%(1) %>
+                          </span>
                         </td>
                         <td><%= unit.name %></td>
                         <td><%= unit.property.name %></td>
-                        <td><%= unit.status == true ? 'Occupied' : 'Vacent' %></td>
-                        <td><%=  %></td>
                         <td>
-                          <%=  %>
+                          <% if unit.status == true %>
+                            <span class="badge bg-success">Occupied</span>
+                          <% else %>
+                            <span class="badge bg-danger">Vacent</span>
+                          <% end %>
                         </td>
-                        <td>$4500</td>
                         <td class="text-end">
                           <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
                           <div class="dropdown-menu dropdown-menu-end fs-8">
