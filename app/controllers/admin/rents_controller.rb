@@ -65,6 +65,6 @@ class Admin::RentsController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rent_params
-      params.require(:rent).permit(:rentmonth, :duedate, :paymentdate, :rent, :gassbill, :lightbill, :servicecharge, :status, :paymentmode, :bankname, :accountnumber, :refnumber, :total, :tenant_id)
+      params.require(:rent).permit(:rentmonth, :duedate, :paymentdate, :rent, :gassbill, :lightbill, :servicecharge, :status, :paymentmode, :bankname, :accountnumber, :refnumber, :total, :tenant_id, :property_id)
     end
 end

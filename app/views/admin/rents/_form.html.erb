@@ -13,9 +13,16 @@
 
 
 
-  <div class="mb-3">
-    <%= form.label :tenant_id, class: 'form-label' %>
-    <%= form.select(:tenant_id, Tenant.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+  <div class="row">
+    <div class="col mb-3">
+      <%= form.label :tenant_id, class: 'form-label' %>
+      <%= form.select(:tenant_id, Tenant.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+    </div>
+
+    <div class="col mb-3">
+      <%= form.label :property_id, class: 'form-label' %>
+      <%= form.select(:property_id, Property.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+    </div>
   </div>
 
   <div class="row mb-2">

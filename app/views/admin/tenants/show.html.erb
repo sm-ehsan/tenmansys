@@ -22,6 +22,82 @@
     </div>
   </section>
 
+  <section class="cards mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Payment</div>
+                  <div class="fs-7 fw-bold">
+                    <% running_total = 0 %>
+                    <% @tenant.rents.all.each do |rent| %>
+                      <% running_total = running_total + rent.total %>
+                    <% end %>
+                    <%= number_to_currency(running_total, unit: 'BDT. ') %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-building-user display-5 text-success"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Tenant</div>
+                  <div class="fs-7 fw-bold">20</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-user-shield display-5 text-warning"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Active Tenant</div>
+                  <div class="fs-7 fw-bold">20</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-circle-exclamation display-5 text-danger"></i>
+                </div>
+                <div class="col">
+                  <span class="fs-8 text-muted">Payment Due</span>
+                  <span class="fs-7 fw-bold">25,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </section>
+
   <seaction>
     <div class="container">
       <div class="row mt-3 mb-5">
@@ -122,6 +198,80 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+  <seaction>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col">
+          <div class="card">
+            
+            <div class="card-header bg-white shadow-sm">
+              <h3 class="card-title fs-6 text-muted my-2">Transaction List</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover fs-8 align-middle">
+                  <thead>
+                    <tr>
+                      <th class="w-1">ID. No.</th>
+                      <th>Client</th>
+                      <th>Contact No.</th>
+                      <th>Rent Month</th>
+                      <th>Payment Date</th>
+                      <th>Status</th>
+                      <th>Amount</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @tenant.rents.each do |rent| %>
+                    <tr>
+                      <td><span class="text-muted"><%= rent.id %></span></td>
+                      <td><%= rent.tenant.name %></td>
+                      <td><%= rent.tenant.mobile %></td>
+                      <td><%= rent.rentmonth.strftime('%b %Y') %></td>
+                      <td><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
+                      <td>
+                        <% if rent.status == true %>
+                          <span class="badge bg-success me-1">Paid</span>
+                        <% else %>
+                          <span class="badge bg-danger me-1">Due</span>
+                        <% end %>
+                      </td>
+                      <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
+                      <td class="text-end">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                        <div class="dropdown-menu dropdown-menu-end fs-8">
+                          <%= link_to 'View', admin_rent_path(rent), class: 'dropdown-item' %>
+                          <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
+                        </div>
+                      </td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card-footer d-flex align-items-center justify-content-between">
+              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
+              
+              <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0 fs-8">
+                  <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+            </div>
+
           </div>
         </div>
       </div>

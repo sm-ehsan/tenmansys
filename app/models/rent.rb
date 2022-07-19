@@ -2,6 +2,7 @@ class Rent < ApplicationRecord
   belongs_to :user
   belongs_to :tenant
   before_save :calculate_total
+  belongs_to :property
 
   enum paymentmode: [:bank, :cash, :bkash, :nagad, :rocket, :cellfin]
 

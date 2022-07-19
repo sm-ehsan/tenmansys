@@ -46,8 +46,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.decimal "total", precision: 8, scale: 2
     t.bigint "user_id", null: false
     t.bigint "tenant_id", null: false
+    t.bigint "property_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_rents_on_property_id"
     t.index ["tenant_id"], name: "index_rents_on_tenant_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
   end
@@ -109,6 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
   end
 
   add_foreign_key "properties", "users"
+  add_foreign_key "rents", "properties"
   add_foreign_key "rents", "tenants"
   add_foreign_key "rents", "users"
   add_foreign_key "tenants", "properties"

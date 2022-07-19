@@ -53,7 +53,7 @@
                         </td>
                         <td><%= rent.tenant.name %></td>
                         <td><%= rent.rentmonth.strftime('%b %Y') %></td>
-                        <td><%= rent.rent %></td>
+                        <td><%= rent.total %></td>
                         <td>
                           <% if rent.gassbill.present? %>
                             <span class="badge bg-success"><%= 'Paid' %></span>
