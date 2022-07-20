@@ -32,7 +32,7 @@
                           <br>
                           Payment Date: <strong><%= rent.paymentdate.strftime("%b %d, %Y")  %></strong>
                           <br>
-                          Status: <strong><%= rent.status == true ? 'Paid' : 'Due' %></strong>
+                          Status: <strong><%= rent.status == 'paid' ? 'Paid' : 'Due' %></strong>
                         </td>
                       </tr>
                     </tbody>

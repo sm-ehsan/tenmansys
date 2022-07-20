@@ -7,7 +7,8 @@ class CreateUnits < ActiveRecord::Migration[7.0]
       t.boolean :drawingroom
       t.boolean :dining
       t.integer :kitchen
-      t.boolean :status
+      t.integer :status
+      t.string :elecmetno
       t.references :user, null: false, foreign_key: true
       t.references :property, null: false, foreign_key: true
 

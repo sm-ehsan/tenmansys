@@ -11,46 +11,57 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :property, 'Select Property', class: 'form-label' %>
-    <%= form.select(:property_id, Property.all.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-select' }) %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :name, 'Unit Name', class: 'form-label' %>
-    <%= form.text_field :name, class: "form-control", placeholder: 'Unit Name' %>
+  <div class="mb-2">
+    <%= form.label :property, 'Select Property', class: 'form-label fs-8 mb-1' %>
+    <%= form.select(:property_id, Property.all.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-select form-select-sm' }) %>
   </div>
 
   <div class="row">
-    <div class="col mb-3">
-      <%= form.label :bedroom, 'Number of Bedrooms', class: 'form-label' %>
-      <%= form.number_field :bedroom, class: "form-control", placeholder: 'Bed Rooms' %>
+    <div class="col mb-2">
+      <%= form.label :name, 'Unit Name', class: 'form-label fs-8 mb-1' %>
+      <%= form.text_field :name, class: "form-control form-control-sm", placeholder: 'Unit Name' %>
     </div>
 
-    <div class="col mb-3">
-      <%= form.label :bathroom, 'Number of Bath Rooms', class: 'form-label' %>
-      <%= form.number_field :bathroom, class: "form-control", placeholder: 'Bath Rooms' %>
-    </div>
-
-    <div class="col mb-3">
-      <%= form.label :kitchen, 'Number of Kitchens', class: 'form-label' %>
-      <%= form.number_field :kitchen, class: "form-control", placeholder: 'Kitchens' %>
+    <div class="col mb-2">
+      <%= form.label :elecmetno, 'Electric Meter Number', class: 'form-label fs-8 mb-1' %>
+      <%= form.text_field :elecmetno, class: "form-control form-control-sm", placeholder: 'Electric Meter Number' %>
     </div>
   </div>
 
-  <div class="form-check form-check-inline mb-3">
-    <%= form.check_box :drawingroom, class: "form-check-input", placeholder: 'Drawing Rooms' %>
-    <%= form.label :drawingroom, class: 'form-check-label' %>
+  <div class="row mb-3">
+    <div class="col mb-2">
+      <%= form.label :bedroom, 'Number of Bedrooms', class: 'form-label fs-8 mb-1' %>
+      <%= form.number_field :bedroom, class: "form-control form-control-sm", placeholder: 'Bed Rooms' %>
+    </div>
+
+    <div class="col mb-2">
+      <%= form.label :bathroom, 'Number of Bath Rooms', class: 'form-label fs-8 mb-1' %>
+      <%= form.number_field :bathroom, class: "form-control form-control-sm", placeholder: 'Bath Rooms' %>
+    </div>
+
+    <div class="col mb-2">
+      <%= form.label :kitchen, 'Number of Kitchens', class: 'form-label fs-8 mb-1' %>
+      <%= form.number_field :kitchen, class: "form-control form-control-sm", placeholder: 'Kitchens' %>
+    </div>
   </div>
 
-  <div class="form-check form-check-inline mb-3">
-    <%= form.check_box :dining, class: "form-check-input", placeholder: 'Dining Rooms' %>
-    <%= form.label :dining, class: 'form-check-label' %>
+  <div class="row">
+    <div class="col">
+      <div class="form-check form-check-inline mb-2">
+        <%= form.check_box :drawingroom, class: "form-check-input", placeholder: 'Drawing Rooms' %>
+        <%= form.label :drawingroom, class: 'form-check-label fs-8' %>
+      </div>
+
+      <div class="form-check form-check-inline mb-2">
+        <%= form.check_box :dining, class: "form-check-input", placeholder: 'Dining Rooms' %>
+        <%= form.label :dining, class: 'form-check-label fs-8' %>
+      </div>
+    </div>
   </div>
 
   <div class="mb-3">
-    <%= form.label :status, class: 'form-label' %>
-    <%= form.select(:status, options_for_select([['Occupied', true], ['Vacent', false]]), {}, {class: 'form-select'}) %>
+    <%= form.label :status, class: 'form-label fs-8 mb-1' %>
+    <%= form.select :status, options_for_select(Unit.statuses.map {|key, value| [key.titleize, Unit.statuses.key(value)]}, unit.status), {}, {class: 'form-select form-select-sm fs-8'} %>
   </div>
 
   <div>

@@ -226,13 +226,17 @@
                   <tbody>
                     <% @property.rents.each do |rent| %>
                     <tr>
-                      <td><span class="text-muted"><%= rent.id %></span></td>
+                      <td>
+                        <span class="text-muted">
+                          RID-<%= rent.present? ? "%.6i"%(rent.id + 1) : "%.6i"%(1) %>
+                        </span>
+                      </td>
                       <td><%= rent.tenant.name %></td>
                       <td><%= rent.tenant.mobile %></td>
                       <td><%= rent.rentmonth.strftime('%b %Y') %></td>
                       <td><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
                       <td>
-                        <% if rent.status == true %>
+                        <% if rent.status == 'paid' %>
                           <span class="badge bg-success me-1">Paid</span>
                         <% else %>
                           <span class="badge bg-danger me-1">Due</span>

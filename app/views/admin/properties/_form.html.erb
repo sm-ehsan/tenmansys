@@ -14,59 +14,59 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div class="form-floating mb-3">
-        <%= form.text_field :name, class: "form-control", placeholder: 'Property Name' %>
-        <%= form.label :name, class: "form-label" %>
+      <div class="mb-2">
+        <%= form.label :name, class: "form-label fs-8 mb-1" %>
+        <%= form.text_field :name, class: "form-control form-control-sm fs-8", placeholder: 'Property Name' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :landlord, class: "form-control", placeholder: 'Land Lord Name' %>
-        <%= form.label :landlord, 'Land Lord Name', class: "form-label" %>
+      <div class="mb-2">
+        <%= form.label :landlord, 'Land Lord Name', class: "form-label fs-8 mb-1" %>
+        <%= form.text_field :landlord, class: "form-control form-control-sm fs-8", placeholder: 'Land Lord Name' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_area :description, class: "form-control", placeholder: 'Property Description', style: "height: 100px"  %>
-        <%= form.label :description, class: "form-label" %>
+      <div class="mb-2">
+        <%= form.label :description, class: "form-label fs-8 mb-1" %>
+        <%= form.text_area :description, class: "form-control", placeholder: 'Property Description', style: "height: 9rem"  %>
       </div>
     </div>
 
     <div class="col-md-6">
-      <div class="form-floating mb-3">
-        <%= form.text_field :addrline1, class: "form-control", placeholder: 'Address Line 1'  %>
-        <%= form.label :addrline1, 'Addressline 1', class: "form-label" %>
+      <div class="mb-2">
+        <%= form.label :addrline1, 'Addressline 1', class: "form-label fs-8 mb-1" %>
+        <%= form.text_field :addrline1, class: "form-control form-control-sm", placeholder: 'Address Line 1'  %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :addrline2, class: "form-control", placeholder: 'Address Line 2'  %>
-        <%= form.label :addrline2, 'Addressline 2', class: "form-label" %>
+      <div class="mb-2">
+        <%= form.label :addrline2, 'Addressline 2', class: "form-label fs-8 mb-1" %>
+        <%= form.text_field :addrline2, class: "form-control form-control-sm", placeholder: 'Address Line 2'  %>
       </div>
 
       <div class="row">
         <div class="col">
-          <div class="form-floating mb-3">
-            <%= form.text_field :zipcode, class: "form-control", placeholder: 'Zip Code'  %>
-            <%= form.label :zipcode, 'Zip-Code', class: "form-label" %>
+          <div class="mb-3">
+            <%= form.label :zipcode, 'Zip-Code', class: "form-label fs-8 mb-1" %>
+            <%= form.text_field :zipcode, class: "form-control form-control-sm", placeholder: 'Zip Code'  %>
           </div>
         </div>
 
         <div class="col">
-          <div class="form-floating mb-3">
-            <%= form.text_field :city, class: "form-control", placeholder: 'City'  %>
-            <%= form.label :city, 'City', class: "form-label" %>
+          <div class="mb-3">
+            <%= form.label :city, 'City', class: "form-label fs-8 mb-1" %>
+            <%= form.text_field :city, class: "form-control form-control-sm", placeholder: 'City'  %>
           </div>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-2">
         <%= form.country_select :country, {selected: "BD"}, {class: 'form-select form-select-sm'} %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :contactno, class: "form-control", placeholder: 'Contact Number'  %>
-        <%= form.label :contactno, 'Contact Number', class: "form-label" %>
+      <div class="mb-3">
+        <%= form.label :contactno, 'Contact Number', class: "form-label fs-8 mb-1" %>
+        <%= form.text_field :contactno, class: "form-control form-control-sm", placeholder: 'Contact Number'  %>
       </div>
 
-      <div class="form-floating mb-3">
+      <div class="b-3">
         <%= form.submit(property.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-primary') %>
       </div>
     </div>

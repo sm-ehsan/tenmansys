@@ -38,6 +38,7 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>mobile</th>
+                        <th>Unit</th>
                         <th>entrydate</th>
                         <th>RPM</th>
                         <th>Status</th>
@@ -55,10 +56,11 @@
                         <td><%= tenant.name %></td>
                         <td><%= tenant.peraddrline1 %></td>
                         <td><%= tenant.mobile %></td>
-                        <td><%= tenant.entrydate %></td>
+                        <td><%= tenant.unit.name %></td>
+                        <td><%= tenant.entrydate.strftime('%b %d, %Y') %></td>
                         <td><%= tenant.rentpermonth %></td>
                         <td>
-                          <% if tenant.status == true %>
+                          <% if tenant.status == 'active' %>
                             <span class="badge bg-success">Active</span>
                           <% else %>
                             <span class="badge bg-danger">Close</span>

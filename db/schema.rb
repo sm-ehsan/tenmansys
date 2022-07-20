@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.decimal "gassbill", precision: 8, scale: 2
     t.decimal "lightbill", precision: 8, scale: 2
     t.decimal "servicecharge", precision: 8, scale: 2
-    t.boolean "status"
+    t.integer "status"
     t.integer "paymentmode"
     t.string "bankname"
     t.string "accountnumber"
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.date "exitdate"
     t.decimal "rentpermonth"
     t.decimal "advancepaid"
-    t.boolean "status"
+    t.integer "status"
     t.bigint "user_id", null: false
     t.bigint "property_id", null: false
     t.bigint "unit_id", null: false
@@ -87,7 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.boolean "drawingroom"
     t.boolean "dining"
     t.integer "kitchen"
-    t.boolean "status"
+    t.integer "status"
+    t.string "elecmetno"
     t.bigint "user_id", null: false
     t.bigint "property_id", null: false
     t.datetime "created_at", null: false

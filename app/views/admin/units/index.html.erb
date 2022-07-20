@@ -45,13 +45,13 @@
                       <tr>
                         <td>
                           <span class="text-muted">
-                            UID-<%= unit.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= unit.present? ? "%.3i"%(unit.id + 1) : "%.3i"%(1) %>
+                            UID-<%= unit.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= unit.present? ? "%.3i"%(unit.id) : "%.3i"%(1) %>
                           </span>
                         </td>
                         <td><%= unit.name %></td>
                         <td><%= unit.property.name %></td>
                         <td>
-                          <% if unit.status == true %>
+                          <% if unit.status == 'occupied' %>
                             <span class="badge bg-success">Occupied</span>
                           <% else %>
                             <span class="badge bg-danger">Vacent</span>

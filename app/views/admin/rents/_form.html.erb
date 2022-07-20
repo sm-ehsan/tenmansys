@@ -14,85 +14,121 @@
 
 
   <div class="row">
-    <div class="col mb-3">
-      <%= form.label :tenant_id, class: 'form-label' %>
-      <%= form.select(:tenant_id, Tenant.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+    <div class="col mb-2">
+      <%= form.label :tenant_id, class: 'form-label fs-8 mb-1' %>
+      <%= form.select(:tenant_id, Tenant.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select form-select-sm fs-8'}) %>
     </div>
 
-    <div class="col mb-3">
-      <%= form.label :property_id, class: 'form-label' %>
-      <%= form.select(:property_id, Property.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select'}) %>
+    <div class="col mb-2">
+      <%= form.label :property_id, class: 'form-label fs-8 mb-1' %>
+      <%= form.select(:property_id, Property.all.collect { |p| [p.name, p.id]}, {}, {class: 'form-select form-select-sm fs-8'}) %>
     </div>
   </div>
 
-  <div class="row mb-2">
-    <div class="col mb-3">
-      <%= form.label :rentmonth, 'Rent Month', class: 'form-label' %>
+
+  <div class="row mb-4 justify-content-between">
+    <div class="col">
+      <%= form.label :duedate, 'Due Date', class: 'form-label fs-8 mb-1' %>
+      <%= form.date_field :duedate, class: 'form-control form-control-sm' %>
+    </div>
+
+    <div class="col">
+      <%= form.label :paymentdate, 'Payment Date', class: 'form-label fs-8 mb-1' %>
+      <%= form.date_field :paymentdate, class: 'form-control form-control-sm'%>
+    </div>
+
+    <div class="col">
+      <%= form.label :rentmonth, 'Rent Month', class: 'form-label fs-8 mb-1' %>
       <div class="d-flex">
-        <%= form.date_select :rentmonth, {discard_day: true}, {class: 'form-select'} %>
+        <%= form.date_select :rentmonth, {discard_day: true}, {class: 'form-select form-select-sm w-100'} %>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped table-inverse table-responsive mb-5">
+    <thead>
+      <tr>
+        <th>Items</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">
+          <%= form.label :rent, 'Rent', class: 'form-label fs-8 mb-1' %>
+        </td>
+        <td>
+          <%= form.text_field :rent, class: 'form-control form-control-sm fs-8 text-end' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= form.label :gassbill, 'Gass Bill', class: 'form-label fs-8 mb-1' %>
+        </td>
+        <td class="w-25">
+          <%= form.text_field :gassbill, class: 'form-control form-control-sm fs-8 text-end' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= form.label :lightbill, 'Light Bill', class: 'form-label fs-8 mb-1' %>
+        </td>
+        <td class="w-25">
+          <%= form.text_field :lightbill, class: 'form-control form-control-sm fs-8 text-end' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= form.label :servicecharge, 'Service Charge', class: 'form-label fs-8 mb-1' %>
+        </td>
+        <td class="w-25">
+          <%= form.text_field :servicecharge, class: 'form-control form-control-sm fs-8 text-end' %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= form.label :total, 'Total', class: 'form-label fs-8 mb-1 fw-bold' %>
+        </td>
+        <td class="w-25">
+          <%= form.text_field :total, class: 'form-control form-control-sm fs-8 text-end fw-bold', disabled: 'disabled' %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="card card-body bg-light mb-3">
+    <div class="row mb-2">
+      <div class="col">
+        <%= form.label :paymentmode, 'Payment Mode', class: 'form-label fs-8 mb-1' %>
+        <%= form.select :paymentmode, options_for_select(Rent.paymentmodes.map {|key, value| [key.titleize, Rent.paymentmodes.key(value)]}, @rent.paymentmode), {}, {class: 'form-select form-select-sm fs-8'} %>
+        <%#= form.select :payment_type, options_for_select(Vendor.payment_types.map {|key, value| [key.titleize, Vendor.payment_types.key(value)]}, @vendor.payment_type) %>
+      </div>
+
+      <div class="col">
+        <%= form.label :bankname, 'Bank Name', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :bankname, class: 'form-control form-control-sm fs-8' %>
       </div>
     </div>
 
-    <div class="col">
-      <%= form.label :duedate, 'Due Date', class: 'form-label' %>
-      <%= form.date_field :duedate, class: 'form-control' %>
-    </div>
+    <div class="row mb-2">
+      <div class="col">
+        <%= form.label :accountnumber, 'Account Number', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :accountnumber, class: 'form-control form-control-sm fs-8' %>
+      </div>
 
-    <div class="col">
-      <%= form.label :paymentdate, 'Payment Date', class: 'form-label' %>
-      <%= form.date_field :paymentdate, class: 'form-control'%>
-    </div>
-  </div>
-
-  <div class="row mb-3">
-    <div class="col">
-      <%= form.label :rent, 'Rent', class: 'form-label' %>
-      <%= form.text_field :rent, class: 'form-control' %>
-    </div>
-
-    <div class="col">
-      <%= form.label :gassbill, 'Gass Bill', class: 'form-label' %>
-      <%= form.text_field :gassbill, class: 'form-control' %>
-    </div>
-
-    <div class="col">
-      <%= form.label :lightbill, 'Light Bill', class: 'form-label' %>
-      <%= form.text_field :lightbill, class: 'form-control' %>
-    </div>
-
-    <div class="col">
-      <%= form.label :servicecharge, 'Service Charge', class: 'form-label' %>
-      <%= form.text_field :servicecharge, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="row mb-2">
-    <div class="col">
-      <%= form.label :paymentmode, 'Payment Mode', class: 'form-label' %>
-      <%= form.select :paymentmode, options_for_select(Rent.paymentmodes.map {|key, value| [key.titleize, Rent.paymentmodes.key(value)]}, @rent.paymentmode), {}, {class: 'form-select'} %>
-      <%#= form.select :payment_type, options_for_select(Vendor.payment_types.map {|key, value| [key.titleize, Vendor.payment_types.key(value)]}, @vendor.payment_type) %>
-    </div>
-
-    <div class="col">
-      <%= form.label :bankname, 'Bank Name', class: 'form-label' %>
-      <%= form.text_field :bankname, class: 'form-control' %>
-    </div>
-
-    <div class="col">
-      <%= form.label :accountnumber, 'Account Number', class: 'form-label' %>
-      <%= form.text_field :accountnumber, class: 'form-control' %>
-    </div>
-
-    <div class="col">
-      <%= form.label :refnumber, 'Reference Number', class: 'form-label' %>
-      <%= form.text_field :refnumber, class: 'form-control' %>
+      <div class="col">
+        <%= form.label :refnumber, 'Reference Number', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :refnumber, class: 'form-control form-control-sm fs-8' %>
+      </div>
     </div>
   </div>
   
 
-  <div>
+  <div class="mb-3">
     <%= form.label :status, class: 'form-label' %>
-    <%= form.check_box :status %>
+    <%= form.select :status, options_for_select(Rent.statuses.map {|key, value| [key.titleize, Rent.statuses.key(value)]}, rent.status), {}, {class: 'form-select form-select-sm fs-8'} %>
   </div>
 
   <div>

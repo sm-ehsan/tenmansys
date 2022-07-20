@@ -104,17 +104,17 @@
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-body">
-              <div class="row">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Name</strong></div>
                 <div class="col-md-8"><%= @tenant.name %></div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>National ID No.</strong></div>
                 <div class="col-md-8"><%= @tenant.nid %></div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Permanent Address</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.peraddrline1 %>,
@@ -127,15 +127,15 @@
                   <%= @tenant.country %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Email Address</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.email %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Mobile Number</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.mobile %>
@@ -153,8 +153,8 @@
                   <%= @tenant.entrydate.strftime('%b %d, %Y') %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Exit Date</strong></div>
                 <div class="col-md-8">
                   <% unless @tenant.exitdate.nil? %>
@@ -162,36 +162,36 @@
                   <% end %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Rent Per Month</strong></div>
                 <div class="col-md-8">
-                  <%= number_to_currency(@tenant.rentpermonth) %>
+                  <%= number_to_currency(@tenant.rentpermonth, unit: 'BDT. ') %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Advance Paid</strong></div>
                 <div class="col-md-8">
-                  <%= number_to_currency(@tenant.advancepaid) %>
+                  <%= number_to_currency(@tenant.advancepaid, unit: 'BDT. ') %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Status</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.status == true ? 'Active' : 'Close' %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Property</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.property.name %>
                 </div>
               </div>
-              <hr>
-              <div class="row">
+              <hr class="my-2">
+              <div class="row fs-8">
                 <div class="col-md-4"><strong>Unit</strong></div>
                 <div class="col-md-8">
                   <%= @tenant.unit.name %>

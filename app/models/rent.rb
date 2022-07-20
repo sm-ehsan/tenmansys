@@ -5,6 +5,7 @@ class Rent < ApplicationRecord
   belongs_to :property
 
   enum paymentmode: [:bank, :cash, :bkash, :nagad, :rocket, :cellfin]
+  enum status: [:due, :paid]
 
   def calculate_total
     renttotal = self.rent + self.gassbill + self.lightbill + self.servicecharge

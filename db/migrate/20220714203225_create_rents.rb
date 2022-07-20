@@ -8,7 +8,7 @@ class CreateRents < ActiveRecord::Migration[7.0]
       t.decimal :gassbill, precision: 8, scale: 2
       t.decimal :lightbill, precision: 8, scale: 2
       t.decimal :servicecharge, precision: 8, scale: 2
-      t.boolean :status
+      t.integer :status
       t.integer :paymentmode
       t.string :bankname
       t.string :accountnumber

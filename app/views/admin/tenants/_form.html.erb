@@ -11,105 +11,107 @@
     </div>
   <% end %>
 
-  <div class="form-floating mb-3">
-    <%= form.text_field :name, class: 'form-control', placeholder: 'Tenant Name' %>
-    <%= form.label :name, 'Tenant Name', class: 'form-label' %>
+  <div class="mb-2">
+    <%= form.label :name, 'Tenant Name', class: 'form-label fs-8 mb-1' %>
+    <%= form.text_field :name, class: 'form-control form-control-sm', placeholder: 'Tenant Name' %>
   </div>
 
-  <div class="row g-2">
-    <div class="col form-floating mb-3">
-      <%= form.text_field :nid, class: 'form-control', placeholder: 'Tenant National Id Number' %>
-      <%= form.label :nid, 'Tenant National ID', class: 'form-label' %>
+  <div class="row g-2 mb-2">
+    <div class="col mb-2">
+      <%= form.label :nid, 'Tenant National ID', class: 'form-label fs-8 mb-1' %>
+      <%= form.text_field :nid, class: 'form-control form-control-sm', placeholder: 'Tenant National Id Number' %>
     </div>
 
-    <div class="col form-floating mb-3">
-      <%= form.email_field :email, class: 'form-control', placeholder: 'Tenant email' %>
-      <%= form.label :email, 'Tenant email', class: 'form-label' %>
+    <div class="col mb-2">
+      <%= form.label :email, 'Tenant email', class: 'form-label fs-8 mb-1' %>
+      <%= form.email_field :email, class: 'form-control form-control-sm', placeholder: 'Tenant email' %>
     </div>
 
-    <div class="col form-floating mb-3">
-      <%= form.text_field :mobile, class: 'form-control', placeholder: 'Tenant Mobile Number' %>
-      <%= form.label :mobile, 'Tenant Mobile', class: 'form-label' %>
+    <div class="col mb-2">
+      <%= form.label :mobile, 'Tenant Mobile', class: 'form-label fs-8 mb-1' %>
+      <%= form.text_field :mobile, class: 'form-control form-control-sm', placeholder: 'Tenant Mobile Number' %>
     </div>
   </div>
 
   <div class="row g-2">
     <div class="col">
-      <p class="fs-8 text-muted text-uppercase mb-1">Permanent Address</p>
-      <div class="form-floating mb-3">
-        <%= form.text_field :peraddrline1, class: 'form-control', placeholder: 'Permanent Address Line 1' %>
-        <%= form.label :peraddrline1, 'Permanent Address Line 1', class: 'form-label' %>
+      <p class="fs-8 text-muted text-uppercase mb-1"><strong>Permanent Address</strong></p>
+      <div class="mb-2">
+        <%= form.label :peraddrline1, 'Permanent Address Line 1', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :peraddrline1, class: 'form-control form-control-sm', placeholder: 'Permanent Address Line 1' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :peraddrline2, class: 'form-control', placeholder: 'Permanent Address Line 2' %>
-        <%= form.label :peraddrline2, 'Permanent Address Line 2', class: 'form-label' %>
+      <div class="mb-2">
+        <%= form.label :peraddrline2, 'Permanent Address Line 2', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :peraddrline2, class: 'form-control form-control-sm', placeholder: 'Permanent Address Line 2' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :peraddrline3, class: 'form-control', placeholder: 'Permanent Address Line 3' %>
-        <%= form.label :peraddrline3, 'Permanent Address Line 3', class: 'form-label' %>
+      <div class="mb-2">
+        <%= form.label :peraddrline3, 'Permanent Address Line 3', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :peraddrline3, class: 'form-control form-control-sm', placeholder: 'Permanent Address Line 3' %>
       </div>
     </div>
 
     <div class="col">
-      <p class="fs-8 text-muted text-uppercase mb-1">Address</p>
-      <div class="form-floating mb-3">
-        <%= form.text_field :zipcode, class: 'form-control', placeholder: 'Zip-Code' %>
-        <%= form.label :zipcode, 'Zip Code', class: 'form-label' %>
+      <p class="fs-8 text-muted text-uppercase mb-1"><br></p>
+      <div class="mb-2">
+        <%= form.label :zipcode, 'Zip Code', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_field :zipcode, class: 'form-control form-control-sm', placeholder: 'Zip-Code' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :city, class: 'form-control', placeholder: 'City' %>
-        <%= form.label :city, 'City', class: 'form-label', placeholder: 'City' %>
+      <div class="mb-2">
+        <%= form.label :city, 'City', class: 'form-label fs-8 mb-1', placeholder: 'City' %>
+        <%= form.text_field :city, class: 'form-control form-control-sm', placeholder: 'City' %>
       </div>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :country, class: 'form-control', placeholder: 'Country' %>
-        <%= form.label :country, 'Country', class: 'form-label', placeholder: 'Country' %>
+      <div class="mb-2">
+        <%= form.label :country, 'Country', class: 'form-label fs-8 mb-1', placeholder: 'Country' %>
+        <%= form.country_select :country, {selected: "BD"}, {class: 'form-select form-select-sm'} %>
       </div>
     </div>
   </div>
 
-  <div class="row g-2 mb-3">
+  <div class="row g-2 mb-2">
     <div class="col">
       <div>
-        <%= form.label :entrydate, 'Tenant Entry Date', class: 'form-label' %>
-        <%= form.date_field :entrydate, class: 'form-control', placeholder: 'Tenant Entry Date' %>
+        <%= form.label :entrydate, 'Tenant Entry Date', class: 'form-label fs-8 mb-1' %>
+        <%= form.date_field :entrydate, class: 'form-control form-control-sm', placeholder: 'Tenant Entry Date' %>
       </div>
     </div>
     <div class="col">
       <div>
-        <%= form.label :exitdate, 'Tenant Exit Date', class: 'form-label' %>
-        <%= form.date_field :exitdate, class: 'form-control', placeholder: 'Tenant Exit Date' %>
+        <%= form.label :exitdate, 'Tenant Exit Date', class: 'form-label fs-8 mb-1' %>
+        <%= form.date_field :exitdate, class: 'form-control form-control-sm', placeholder: 'Tenant Exit Date' %>
       </div>
     </div>
-  </div>
-
-  <div class="row g-2">
-    <div class="col form-floating mb-3">
-      <%= form.text_field :rentpermonth, class: 'form-control', placeholder: 'Rent Per Month'  %>
-      <%= form.label :rentpermonth, 'Rent Per Month', class: 'form-label', placeholder: 'Rent Per Month' %>
-    </div>
-    <div class="col form-floating mb-3">
-      <%= form.text_field :advancepaid, class: 'form-control', placeholder: 'Advance Paid'  %>
-      <%= form.label :advancepaid, 'Advance Paid', class: 'form-label', placeholder: 'Advance Paid' %>
-    </div>
-  </div>
-
-  <div class="form-check form-check-inline mb-3">
-    <%= form.check_box :status, class: "form-check-input", placeholder: 'Status' %>
-    <%= form.label :status, class: 'form-check-label' %>
   </div>
 
   <div class="row g-2">
     <div class="col mb-3">
-      <%= form.label :property_id, class: 'form-check-label mb-2' %>
+      <%= form.label :rentpermonth, 'Rent Per Month', class: 'form-label fs-8 mb-1', placeholder: 'Rent Per Month' %>
+      <%= form.text_field :rentpermonth, class: 'form-control form-control-sm', placeholder: 'Rent Per Month'  %>
+    </div>
+    <div class="col mb-3">
+      <%= form.label :advancepaid, 'Advance Paid', class: 'form-label fs-8 mb-1', placeholder: 'Advance Paid' %>
+      <%= form.text_field :advancepaid, class: 'form-control form-control-sm', placeholder: 'Advance Paid'  %>
+    </div>
+
+    <div class="col mb-3">
+      <%= form.label :status, class: 'form-label fs-8 mb-1' %>
+      <%= form.select :status, options_for_select(Tenant.statuses.map {|key, value| [key.titleize, Tenant.statuses.key(value)]}, tenant.status), {}, {class: 'form-select form-select-sm fs-8'} %>
+    </div>
+  </div>
+
+  
+
+  <div class="row g-2">
+    <div class="col mb-2">
+      <%= form.label :property_id, class: 'form-label fs-8 mb-1 mb-2' %>
       <%= form.select(:property_id, Property.all.collect{ |p| [p.name, p.id] }, {}, {class: 'form-select form-select-sm'}) %>
     </div>
 
-    <div class="col mb-3">
-      <%= form.label :unit_id, class: 'form-check-label mb-2' %>
+    <div class="col mb-2">
+      <%= form.label :unit_id, class: 'form-label fs-8 mb-1mb-2' %>
       <%= form.grouped_collection_select(:unit_id, Property.order(:name), :units, :name, :id, :name, {}, {class: 'form-select form-select-sm'}) %>
     </div>
   </div>
