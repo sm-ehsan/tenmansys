@@ -63,6 +63,10 @@
                           <td><%= number_to_currency(rent.lightbill, unit: 'BDT. ') %></td>
                         </tr>
                         <tr class="content">
+                          <td><strong><%= 'Water Bill' %></strong></td>
+                          <td><%= number_to_currency(rent.waterbill, unit: 'BDT. ') %></td>
+                        </tr>
+                        <tr class="content">
                           <td><strong><%= 'Service Charge' %></strong></td>
                           <td><%= number_to_currency(rent.servicecharge, unit: 'BDT. ') %></td>
                         </tr>

@@ -7,6 +7,7 @@ class CreateRents < ActiveRecord::Migration[7.0]
       t.decimal :rent, precision: 8, scale: 2
       t.decimal :gassbill, precision: 8, scale: 2
       t.decimal :lightbill, precision: 8, scale: 2
+      t.decimal :waterbill, precision: 8, scale: 2
       t.decimal :servicecharge, precision: 8, scale: 2
       t.integer :status
       t.integer :paymentmode

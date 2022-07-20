@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.decimal "rent", precision: 8, scale: 2
     t.decimal "gassbill", precision: 8, scale: 2
     t.decimal "lightbill", precision: 8, scale: 2
+    t.decimal "waterbill", precision: 8, scale: 2
     t.decimal "servicecharge", precision: 8, scale: 2
     t.integer "status"
     t.integer "paymentmode"
