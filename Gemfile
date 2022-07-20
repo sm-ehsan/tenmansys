@@ -38,3 +38,4 @@ end
 
 gem 'devise'
 gem 'country_select', '~> 6.0'
+gem 'pagy', '~> 5.10'

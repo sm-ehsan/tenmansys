@@ -3,7 +3,7 @@ class Admin::RentsController < Admin::ApplicationController
 
   # GET /rents or /rents.json
   def index
-    @rents = Rent.all.order("Created_at DESC")
+    @pagy, @rents = pagy(Rent.all.order("Created_at DESC"), items: 5)
   end
 
   # GET /rents/1 or /rents/1.json

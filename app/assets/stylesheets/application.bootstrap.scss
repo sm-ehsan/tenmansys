@@ -83,17 +83,23 @@ body {
 }
 
 // Dashboard
-.dashboard_index {
-  .navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-    .show {
-      padding-bottom: 0.5rem;
+.admin{
+  .dashboard_index {
+    .navbar {
+      padding-top: 0;
+      padding-bottom: 0;
+      .show {
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    .badge:empty{
+      display: inline-flex;
     }
   }
-
-  .badge:empty{
-    display: inline-flex;
+  .pagination{
+    font-size: .85rem;
+    margin-bottom: 0;
   }
 }
 

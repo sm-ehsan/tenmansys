@@ -34,22 +34,22 @@
                   <table class="table table-striped table-hover fs-8 align-middle">
                     <thead>
                       <tr>
-                        <th class="w-1">ID. No.</th>
+                        <th class="d-none d-md-block">ID. No.</th>
                         <th>name</th>
-                        <th>Property</th>
+                        <th class="d-none d-md-block">Property</th>
                         <th>Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       <% @units.each do |unit| %>
                       <tr>
-                        <td>
+                        <td class="d-none d-md-block">
                           <span class="text-muted">
                             UID-<%= unit.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= unit.present? ? "%.3i"%(unit.id) : "%.3i"%(1) %>
                           </span>
                         </td>
                         <td><%= unit.name %></td>
-                        <td><%= unit.property.name %></td>
+                        <td class="d-none d-md-block"><%= unit.property.name %></td>
                         <td>
                           <% if unit.status == 'occupied' %>
                             <span class="badge bg-success">Occupied</span>
@@ -58,7 +58,9 @@
                           <% end %>
                         </td>
                         <td class="text-end">
-                          <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                          <% end %>
                           <div class="dropdown-menu dropdown-menu-end fs-8">
                             <%= link_to 'Details', admin_unit_path(unit), class: 'dropdown-item' %>
                             <%= link_to 'Edit', edit_admin_unit_path(unit), class: 'dropdown-item' %>
@@ -74,16 +76,7 @@
 
             <div class="card-footer d-flex align-items-center justify-content-between">
               <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
-              
-              <nav aria-label="Page navigation example">
-                <ul class="pagination mb-0 fs-8">
-                  <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-              </nav>
+              <%== pagy_bootstrap_nav(@pagy) %>
             </div>
 
           </div>
