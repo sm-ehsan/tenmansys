@@ -52,7 +52,7 @@ class Admin::PropertiesController < Admin::ApplicationController
     @property.destroy
 
     respond_to do |format|
-      format.html { redirect_to properties_url, notice: "Property was successfully destroyed." }
+      format.html { redirect_to admin_properties_url, notice: "Property was successfully destroyed." }
       format.json { head :no_content }
     end
   end

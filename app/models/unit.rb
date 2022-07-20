@@ -4,6 +4,6 @@ class Unit < ApplicationRecord
 
   enum status: [:occupied, :vaecent]
   
-  scope :vacent, -> { where(:status => false)}
-  scope :occupied, -> { where(:status => true)}
+  scope :occupied, -> { where(:status => 0)}
+  scope :vacent, -> { where(:status => 1)}
 end

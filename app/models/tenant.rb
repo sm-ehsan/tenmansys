@@ -5,4 +5,6 @@ class Tenant < ApplicationRecord
   belongs_to :unit
 
   enum status: [:active, :close]
+
+  scope :status, -> { where(:active => active)}
 end
