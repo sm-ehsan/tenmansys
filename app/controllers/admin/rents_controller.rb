@@ -3,7 +3,7 @@ class Admin::RentsController < Admin::ApplicationController
 
   # GET /rents or /rents.json
   def index
-    @pagy, @rents = pagy(Rent.all.order("Created_at DESC"), items: 5)
+    @pagy, @rents = pagy(Rent.all.order("Created_at DESC"), items: 10)
   end
 
   # GET /rents/1 or /rents/1.json
@@ -65,6 +65,6 @@ class Admin::RentsController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rent_params
-      params.require(:rent).permit(:rentmonth, :duedate, :paymentdate, :rent, :gassbill, :lightbill, :waterbill, :servicecharge, :status, :paymentmode, :bankname, :accountnumber, :refnumber, :total, :tenant_id, :property_id)
+      params.require(:rent).permit(:rentmonth, :duedate, :paymentdate, :rent, :gassbill, :lightbill, :waterbill, :servicecharge, :status, :paymentmode, :bankname, :accountnumber, :refnumber, :total, :othercharges, :note, :tenant_id, :property_id)
     end
 end

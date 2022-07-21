@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.string "accountnumber"
     t.string "refnumber"
     t.decimal "total", precision: 8, scale: 2
+    t.decimal "othercharges", precision: 8, scale: 2
+    t.text "note"
     t.bigint "user_id", null: false
     t.bigint "tenant_id", null: false
     t.bigint "property_id", null: false

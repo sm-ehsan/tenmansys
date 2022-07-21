@@ -70,6 +70,10 @@
                           <td><strong><%= 'Service Charge' %></strong></td>
                           <td><%= number_to_currency(rent.servicecharge, unit: 'BDT. ') %></td>
                         </tr>
+                        <tr class="content">
+                          <td><strong><%= 'Other Charge' %></strong></td>
+                          <td><%= number_to_currency(rent.othercharges, unit: 'BDT. ') %></td>
+                        </tr>
                     </tbody>
                   </table>
                 </div>
@@ -94,30 +98,43 @@
                 <hr class="my-0">
                 
                 <div class="address p-2">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr class="mb-0">
-                                <td>Mode Of Payment: <strong><span class="text-uppercase"><%= rent.paymentmode %></span></strong></td>
-                            </tr>
-                            <tr class="content">
-                                <td> 
-                                  <%if rent.bank? %>
-                                    Bank Name : <%= rent.bankname %>
-                                    <br>
-                                  <% end %>
-                                  <% if rent.accountnumber? %>
-                                  Account Number : <%= rent.accountnumber %>
-                                    <% end %>
-                                    <br>
-                                  <% if rent.refnumber? %>
-                                    Reference Number : <%= rent.refnumber %>
-                                    <br>
-                                  <% end %>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  <table class="table table-borderless">
+                    <tbody>
+                      <tr class="mb-0">
+                          <td>Mode Of Payment: <strong><span class="text-uppercase"><%= rent.paymentmode %></span></strong></td>
+                      </tr>
+                      <tr class="content">
+                          <td> 
+                            <%if rent.bank? %>
+                              Bank Name : <%= rent.bankname %>
+                              <br>
+                            <% end %>
+                            <% if rent.accountnumber? %>
+                            Account Number : <%= rent.accountnumber %>
+                              <% end %>
+                              <br>
+                            <% if rent.refnumber? %>
+                              Reference Number : <%= rent.refnumber %>
+                              <br>
+                            <% end %>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+
+                <% if @rent.note? %>
+                  <hr class="my-0">
+                  <div class="row p-2">
+                    <div class="col">
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          <p class="card-text"><%= @rent.note %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
             </div>
         </div>
     </div>

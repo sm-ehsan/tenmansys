@@ -15,6 +15,8 @@ class CreateRents < ActiveRecord::Migration[7.0]
       t.string :accountnumber
       t.string :refnumber
       t.decimal :total, precision: 8, scale: 2
+      t.decimal :othercharges, precision: 8, scale: 2
+      t.text :note
       t.references :user, null: false, foreign_key: true
       t.references :tenant, null: false, foreign_key: true
       t.references :property, null: false, foreign_key: true

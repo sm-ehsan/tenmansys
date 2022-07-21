@@ -8,7 +8,7 @@ class Rent < ApplicationRecord
   enum status: [:due, :paid]
 
   def calculate_total
-    renttotal = self.rent + self.gassbill + self.lightbill + self.servicecharge
+    renttotal = self.rent + self.gassbill + self.lightbill + self.servicecharge + self.othercharges
     self.total = renttotal
   end
 

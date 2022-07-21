@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-
-
   <div class="row">
     <div class="col mb-2">
       <%= form.label :tenant_id, class: 'form-label fs-8 mb-1' %>
@@ -100,6 +98,15 @@
 
       <tr>
         <td>
+          <%= form.label :othercharges, 'Service Charge', class: 'form-label fs-8 mb-1' %>
+        </td>
+        <td class="w-25">
+          <%= form.text_field :othercharges, class: 'form-control form-control-sm fs-8 text-end' %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
           <%= form.label :total, 'Total', class: 'form-label fs-8 mb-1 fw-bold' %>
         </td>
         <td class="w-25">
@@ -108,7 +115,6 @@
       </tr>
     </tbody>
   </table>
-
 
   <div class="card card-body bg-light mb-3">
     <div class="row mb-2">
@@ -136,8 +142,16 @@
       </div>
     </div>
   </div>
-  
 
+  <div class="card card-body bg-light mb-3">
+    <div class="row mb-2">
+      <div class="col">
+        <%= form.label :note, 'Note', class: 'form-label fs-8 mb-1' %>
+        <%= form.text_area :note, class: 'form-control form-control-sm fs-8' %>
+      </div>
+    </div>
+  </div>
+  
   <div class="mb-3">
     <%= form.label :status, class: 'form-label' %>
     <%= form.select :status, options_for_select(Rent.statuses.map {|key, value| [key.titleize, Rent.statuses.key(value)]}, rent.status), {}, {class: 'form-select form-select-sm fs-8'} %>
