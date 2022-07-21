@@ -124,7 +124,7 @@
                   <% end %>
                   <%= @tenant.zipcode %>,
                   <%= @tenant.city %>,
-                  <%= @tenant.country %>
+                  <%= @tenant.country_name %>
                 </div>
               </div>
               <hr class="my-2">
@@ -180,7 +180,7 @@
               <div class="row fs-8">
                 <div class="col-md-4"><strong>Status</strong></div>
                 <div class="col-md-8">
-                  <%= @tenant.status == true ? 'Active' : 'Close' %>
+                  <%= @tenant.status == 'active' ? 'Active' : 'Close' %>
                 </div>
               </div>
               <hr class="my-2">
@@ -237,17 +237,20 @@
                       <td><%= rent.rentmonth.strftime('%b %Y') %></td>
                       <td><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
                       <td>
-                        <% if rent.status == true %>
+                        <% if rent.status == 'paid' %>
                           <span class="badge bg-success me-1">Paid</span>
                         <% else %>
                           <span class="badge bg-danger me-1">Due</span>
                         <% end %>
                       </td>
                       <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
+                      
                       <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                        <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <% end %>
                         <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <%= link_to 'View', admin_rent_path(rent), class: 'dropdown-item' %>
+                          <%= link_to 'Details', admin_rent_path(rent), class: 'dropdown-item' %>
                           <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
                         </div>
                       </td>

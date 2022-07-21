@@ -231,9 +231,11 @@
                       </td>
                       <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
                       <td class="text-end">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                        <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <% end %>
                         <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <%= link_to 'View', admin_rent_path(rent), class: 'dropdown-item' %>
+                          <%= link_to 'Details', admin_rent_path(rent), class: 'dropdown-item' %>
                           <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
                         </div>
                       </td>

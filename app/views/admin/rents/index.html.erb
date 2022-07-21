@@ -81,8 +81,13 @@
                           <%= rent.paymentdate.strftime('%d %b, %Y') %>
                         </td>
                         <td class="text-end">
-                          <%= link_to 'Details', admin_rent_path(rent), class: 'btn btn-sm btn-primary fs-8' %>
-                          <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'btn btn-sm btn-primary fs-8' %>
+                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                          <% end %>
+                          <div class="dropdown-menu dropdown-menu-end fs-8">
+                            <%= link_to 'Details', admin_rent_path(rent), class: 'dropdown-item' %>
+                            <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
+                          </div>
                         </td>
                       </tr>
                       <% end %>

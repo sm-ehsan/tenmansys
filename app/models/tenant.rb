@@ -7,4 +7,9 @@ class Tenant < ApplicationRecord
   enum status: [:active, :close]
 
   scope :status, -> { where(:active => active)}
+
+  def country_name
+    country = self.country
+    ISO3166::Country[country]
+  end
 end
