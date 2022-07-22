@@ -4,5 +4,6 @@ class Admin::DashboardController < Admin::ApplicationController
     @tenants = Tenant.all
     @units = Unit.all
     @properties = Property.all
+    @expense = Expense.all
   end
 end

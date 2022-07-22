@@ -1,0 +1,64 @@
+<%= form_with(model: [:admin, expense]) do |form| %>
+  <% if expense.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+        <% expense.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col mb-2">
+      <%= form.label :paymentdate, 'Payment Date', class: 'form-label fs-8 mb-1' %>
+      <%= form.date_field :paymentdate, class: 'form-control form-control-sm' %>
+    </div>
+
+    <div class="col mb-2">
+      <%= form.label :billmonth, 'Bill Month', class: 'form-label fs-8 mb-1' %>
+      <div class="d-flex">
+        <%= form.date_select :billmonth, {discard_day: true}, {class: 'form-select form-select-sm me-2'} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :name, 'Expense Name', class: 'form-label fs-8' %>
+    <%= form.text_field :name, class: 'form-control form-control-sm' %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :amount, class: 'form-label fs-8 mb-1' %>
+    <%= form.text_field :amount, class: 'form-control form-control-sm' %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :note, class: 'form-label fs-8 mb-1' %>
+    <%= form.text_area :note, class: 'form-control form-control-sm' %>
+  </div>
+
+
+  <div class="row mb-3">
+    <div class="col">
+      <%= form.label :tenant_id, class: 'form-label fs-8 mb-1' %>
+      <%= form.select(:tenant_id, Tenant.all.collect{ |p| [p.name, p.id] }, {:include_blank => true}, {class: 'form-select form-select-sm'}) %>
+    </div>
+
+    <div class="col">
+      <%= form.label :unit_id, class: 'form-label fs-8 mb-1' %>
+      <%= form.grouped_collection_select(:unit_id, Property.order(:name), :units, :name, :id, :name, {:include_blank => true}, {class: 'form-select form-select-sm'}) %>
+    </div>
+
+    <div class="col">
+      <%= form.label :property_id, class: 'form-label fs-8 mb-1' %>
+      <%= form.select(:property_id, Property.all.collect{ |p| [p.name, p.id] }, {:include_blank => true}, {class: 'form-select form-select-sm'}) %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit(expense.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-success') %>
+  </div>
+<% end %>

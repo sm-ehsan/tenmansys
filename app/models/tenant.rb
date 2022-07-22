@@ -1,4 +1,5 @@
 class Tenant < ApplicationRecord
+  has_many :expenses
   has_many :rents, dependent: :destroy
   belongs_to :user
   belongs_to :property

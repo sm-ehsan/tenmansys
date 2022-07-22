@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_114017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expenses", force: :cascade do |t|
+    t.date "paymentdate"
+    t.date "billmonth"
+    t.string "name"
+    t.decimal "amount", precision: 8, scale: 2
+    t.text "note"
+    t.bigint "user_id", null: false
+    t.bigint "tenant_id"
+    t.bigint "unit_id"
+    t.bigint "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_expenses_on_property_id"
+    t.index ["tenant_id"], name: "index_expenses_on_tenant_id"
+    t.index ["unit_id"], name: "index_expenses_on_unit_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
+  end
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
@@ -114,6 +132,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_203225) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "expenses", "properties"
+  add_foreign_key "expenses", "tenants"
+  add_foreign_key "expenses", "units"
+  add_foreign_key "expenses", "users"
   add_foreign_key "properties", "users"
   add_foreign_key "rents", "properties"
   add_foreign_key "rents", "tenants"

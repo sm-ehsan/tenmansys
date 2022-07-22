@@ -1,0 +1,36 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <h2 class="fs-7 fw-bold">Add Expense</h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list">
+            <%= link_to 'Back To All Expenses', admin_expenses_path, class: 'btn btn-sm btn-warning' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <seaction>
+    <div class="container">
+      <div class="row mb-3 justify-content-center">
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-body">
+              <%= render "form", expense: @expense %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+
+</main>
+<%= render "shared/backend/footer" %>

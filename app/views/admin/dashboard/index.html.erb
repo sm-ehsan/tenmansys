@@ -218,6 +218,28 @@
             </div>
           </div>
         </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Expenses</div>
+                  <div class="fs-7 fw-bold">
+                    <% running_total = 0 %>
+                    <% Expense.all.each do |expense| %>
+                      <% running_total = running_total + expense.amount %>
+                    <% end %>
+                    <%= number_to_currency(running_total, unit: 'BDT. ') %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

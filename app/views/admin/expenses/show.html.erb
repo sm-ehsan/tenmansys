@@ -1,0 +1,83 @@
+<%= render "shared/backend/header" %>
+<main class="main" id="top">
+  <section class="page-header py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="fs-8 fw-bold text-muted">Overview</div>
+          <h2 class="fs-7 fw-bold"><%= @expense.name %></h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
+          <div class="btn-list d-flex">
+            <%= link_to 'Edit Expense', edit_admin_expense_path, class: 'btn btn-sm btn-primary me-2' %>
+            <%= link_to 'Back', admin_expenses_path, class: 'btn btn-sm btn-warning me-2' %>
+
+            <%= button_to "Destroy this Expense", admin_expense_path(@expense), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <seaction>
+    <div class="container">
+      <div class="row mt-3 mb-5 justify-content-center">
+        <div class="col-md-5">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="row fs-8">
+                <div class="col-md-4"><strong>Name</strong></div>
+                <div class="col-md-8"><%= @expense.name %></div>
+              </div>
+              <hr class="my-2">
+              <div class="row fs-8">
+                <div class="col-md-4"><strong>Tenant.</strong></div>
+                <div class="col-md-8">
+                  <%= @expense.tenant ? @expense.tenant.name : 'Common' %>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="row">
+                <div class="col-md-4"><strong>Payment Date</strong></div>
+                <div class="col-md-8">
+                  <%= @expense.paymentdate.strftime('%b %d, %Y') %>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="row">
+                <div class="col-md-4"><strong>Bill Month</strong></div>
+                <div class="col-md-8">
+                  <%= @expense.billmonth.strftime('%b %Y') %>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="row fs-8">
+                <div class="col-md-4"><strong>Paid Amount</strong></div>
+                <div class="col-md-8">
+                  <%= number_to_currency(@expense.amount, unit: 'BDT. ') %>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="row fs-8">
+                <div class="col-md-4"><strong>Property</strong></div>
+                <div class="col-md-8">
+                  <%= @expense.property ? @expense.property.name : 'Common' %>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="row fs-8">
+                <div class="col-md-4"><strong>Unit</strong></div>
+                <div class="col-md-8">
+                  <%= @expense.unit ? @expense.unit.name : 'Common' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </seaction>
+</main>
+<%= render "shared/backend/footer" %>

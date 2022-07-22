@@ -7,12 +7,12 @@
         <div class="col">
           <!-- Page pre-title -->
           <div class="fs-8 fw-bold text-muted">Overview</div>
-          <h2 class="fs-7 fw-bold">Property</h2>
+          <h2 class="fs-7 fw-bold">Expenses</h2>
         </div>
         <!-- Page title actions -->
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
           <div class="btn-list">
-            <%= link_to 'Add Property', new_admin_property_path, class: 'btn btn-sm btn-primary' %>
+            <%= link_to 'Add Expense', new_admin_expense_path, class: 'btn btn-sm btn-primary' %>
           </div>
         </div>
       </div>
@@ -24,9 +24,8 @@
       <div class="row mb-3">
         <div class="col">
           <div class="card">
-            
             <div class="card-header bg-white shadow-sm">
-              <h3 class="card-title fs-6 text-muted my-2">Property List</h3>
+              <h3 class="card-title fs-6 text-muted my-2">Expenses List</h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -35,33 +34,38 @@
                     <thead>
                       <tr>
                         <th class="w-1">ID. No.</th>
+                        <th>Name</th>
+                        <th>Tenant</th>
                         <th>Property</th>
-                        <th>Address</th>
-                        <th>City</th>
-                        <th>Contact</th>
-                        <th>Landlord</th>
+                        <th>Payment Date</th>
+                        <th>Amount</th>
+                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <% @properties.each do |property| %>
+                      <% @expenses.each do |expense| %>
                       <tr>
                         <td>
-                          <span class="text-muted"><%= property.id %></span>
+                          <span class="text-muted">
+                            EID-<%= expense.present? ? "%.3i"%(expense.id + 1) : "%.2i"%(1) %>
+                          </span>
                         </td>
-                        <td><%= property.name %></td>
-                        <td><%= property.addrline1 %></td>
-                        <td><%= property.city %></td>
-                        <td><%= property.contactno %></td>
+                        <td><%= expense.name? ? expense.name : 'Common' %></td>
+                        <td><%= expense.tenant ? expense.tenant.name : 'Common' %></td>
+                        <td><%= expense.property ? expense.property.name : 'Common' %></td>
                         <td>
-                          <%= property.landlord %>
+                          <% if expense.paymentdate? %>
+                            <%= expense.paymentdate.strftime('%b %d, %Y') %>
+                          <% end %>
                         </td>
+                        <td><%= expense.amount %></td>
                         <td class="text-end">
                           <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                           <% end %>
                           <div class="dropdown-menu dropdown-menu-end fs-8">
-                            <%= link_to 'Details', admin_property_path(property), class: 'dropdown-item' %>
-                            <%= link_to 'Edit', edit_admin_property_path(property), class: 'dropdown-item' %>
+                            <%= link_to 'Details', admin_expense_path(expense), class: 'dropdown-item' %>
+                            <%= link_to 'Edit', edit_admin_expense_path(expense), class: 'dropdown-item' %>
                           </div>
                         </td>
                       </tr>
@@ -72,6 +76,11 @@
               </div>
             </div>
 
+            <div class="card-footer d-flex align-items-center justify-content-between">
+              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
+              
+              <%== pagy_bootstrap_nav(@pagy) %>
+            </div>
           </div>
         </div>
       </div>

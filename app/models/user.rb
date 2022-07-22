@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :expenses
   has_many :rents
   has_many :tenants
   has_many :units
