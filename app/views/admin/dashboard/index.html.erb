@@ -118,16 +118,12 @@
             <div class="card-body">
               <div class="row align-items-center">  
                 <div class="col-auto">
-                  <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
+                  <i class="fa-solid fa-archway display-5 text-primary"></i>
                 </div>
                 <div class="col">
-                  <div class="fs-8 text-muted">Total Payment</div>
+                  <div class="fs-8 text-muted">Total Properties</div>
                   <div class="fs-7 fw-bold">
-                    <% running_total = 0 %>
-                    <% Rent.all.each do |rent| %>
-                      <% running_total = running_total + rent.total %>
-                    <% end %>
-                    <%= number_to_currency(running_total, unit: 'BDT. ') %>
+                    <%= @properties.count %>
                   </div>
                 </div>
               </div>
@@ -140,11 +136,51 @@
             <div class="card-body">
               <div class="row align-items-center">  
                 <div class="col-auto">
-                  <i class="fa-solid fa-building-user display-5 text-success"></i>
+                  <i class="fa-solid fa-building-un display-5 text-primary"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Units</div>
+                  <div class="fs-7 fw-bold">
+                    <%= @units.count %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-building-user display-5 text-primary"></i>
                 </div>
                 <div class="col">
                   <div class="fs-8 text-muted">Total Tenant</div>
                   <div class="fs-7 fw-bold"><%= @tenants.all.count %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">  
+                <div class="col-auto">
+                  <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Payment</div>
+                  <div class="fs-7 fw-bold">
+                    <% running_total = 0 %>
+                    <% Rent.all.each do |rent| %>
+                      <% running_total = running_total + rent.total %>
+                    <% end %>
+                    <%= number_to_currency(running_total, unit: 'BDT. ') %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,7 +227,6 @@
       <div class="row mb-3">
         <div class="col">
           <div class="card">
-            
             <div class="card-header bg-white shadow-sm">
               <h3 class="card-title fs-6 text-muted my-2">Transaction List</h3>
             </div>

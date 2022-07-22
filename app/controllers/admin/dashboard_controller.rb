@@ -3,5 +3,6 @@ class Admin::DashboardController < Admin::ApplicationController
     @pagy, @rents = pagy(Rent.all.order('created_at desc'), items: 10)
     @tenants = Tenant.all
     @units = Unit.all
+    @properties = Property.all
   end
 end
