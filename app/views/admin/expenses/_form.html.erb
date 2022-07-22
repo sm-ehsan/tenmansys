@@ -60,5 +60,6 @@
 
   <div>
     <%= form.submit(expense.new_record? ? 'Save' : 'Update', class: 'btn btn-sm btn-success') %>
+    <%= link_to sanitize("&larr; Back"), admin_expenses_path, class: 'btn btn-sm btn-danger' %>
   </div>
 <% end %>
