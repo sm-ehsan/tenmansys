@@ -1,6 +1,5 @@
 <%= render "shared/backend/header" %>
 <main class="main" id="top">
-
   <section class="page-header py-3">
     <div class="container">
       <div class="row">
@@ -11,7 +10,7 @@
         <!-- Page title actions -->
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
           <div class="btn-list">
-            <%= link_to 'Back To All Expenses', admin_expenses_path, class: 'btn btn-sm btn-warning' %>
+            <%= link_to sanitize("&larr; Back To All Expenses"), admin_expenses_path, class: 'btn btn-sm btn-warning' %>
           </div>
         </div>
       </div>
@@ -31,6 +30,5 @@
       </div>
     </div>
   </seaction>
-
 </main>
 <%= render "shared/backend/footer" %>

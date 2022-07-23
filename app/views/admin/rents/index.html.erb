@@ -24,7 +24,6 @@
       <div class="row mb-3">
         <div class="col">
           <div class="card">
-            
             <div class="card-header bg-white shadow-sm">
               <h3 class="card-title fs-6 text-muted my-2">Rent List</h3>
             </div>
@@ -98,11 +97,10 @@
             </div>
 
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
+              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>10</span> of <span><%= @rents.count %></span> entries</p>
               
               <%== pagy_bootstrap_nav(@pagy) %>
             </div>
-
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ class Admin::PropertiesController < Admin::ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
+    @property = Property.find(params[:id])
+    @pagy, @rents = pagy(@property.rents.order("created_at desc"), items: 10)
   end
 
   # GET /properties/new
