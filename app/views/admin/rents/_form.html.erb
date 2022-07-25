@@ -1,15 +1,5 @@
 <%= form_with(model: [:admin, rent]) do |form| %>
-  <% if rent.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
-
-      <ul>
-        <% rent.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', obj: @rent %>
 
   <div class="row">
     <div class="col mb-2">

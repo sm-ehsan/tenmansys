@@ -1,15 +1,5 @@
 <%= form_with(model: [:admin, unit]) do |form| %>
-  <% if unit.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
-
-      <ul>
-        <% unit.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', obj: @unit %>
 
   <div class="mb-2">
     <%= form.label :property, 'Select Property', class: 'form-label fs-8 mb-1' %>

@@ -25,7 +25,9 @@ class Admin::ExpensesController < Admin::ApplicationController
     @expense.user = current_user
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to admin_expense_url(@expense), notice: "Expense was successfully created." }
+        format.html { 
+          flash[:success] = "Expense was successfully created." }
+          redirect_to admin_expense_url(@expense) 
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,10 @@ class Admin::ExpensesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to admin_expense_url(@expense), notice: "Expense was successfully updated." }
+        format.html { 
+          flash[:success] = "Expense was successfully updated." 
+          redirect_to admin_expense_url(@expense) 
+        }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +57,10 @@ class Admin::ExpensesController < Admin::ApplicationController
     @expense.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_expenses_url, notice: "Expense was successfully destroyed." }
+      format.html { 
+        flash[:danger] = "Expense was successfully destroyed." 
+        redirect_to admin_expenses_url 
+      }
       format.json { head :no_content }
     end
   end

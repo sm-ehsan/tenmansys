@@ -25,7 +25,10 @@ class Admin::TenantsController < Admin::ApplicationController
     @tenant.user = current_user
     respond_to do |format|
       if @tenant.save
-        format.html { redirect_to admin_tenant_url(@tenant), notice: "Tenant was successfully created." }
+        format.html { 
+          flash[:success] = "Tenant was successfully created." 
+          redirect_to admin_tenant_url(@tenant)
+        }
         format.json { render :show, status: :created, location: @tenant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,10 @@ class Admin::TenantsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @tenant.update(tenant_params)
-        format.html { redirect_to admin_tenant_url(@tenant), notice: "Tenant was successfully updated." }
+        format.html { 
+          flash[:success] = "Tenant was successfully updated." 
+          redirect_to admin_tenant_url(@tenant) 
+        }
         format.json { render :show, status: :ok, location: @tenant }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +58,10 @@ class Admin::TenantsController < Admin::ApplicationController
     @tenant.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_tenants_url, notice: "Tenant was successfully destroyed." }
+      format.html { 
+        flash[:danger] = "Tenant was successfully destroyed." 
+        redirect_to admin_tenants_url 
+      }
       format.json { head :no_content }
     end
   end

@@ -13,4 +13,6 @@ class Tenant < ApplicationRecord
     country = self.country
     ISO3166::Country[country]
   end
+  
+  validates :name, presence: true
 end

@@ -25,11 +25,12 @@ class Admin::RentsController < Admin::ApplicationController
     @rent.user = current_user
     respond_to do |format|
       if @rent.save
-        format.html { redirect_to admin_rent_url(@rent), notice: "Rent was successfully created." }
-        format.json { render :show, status: :created, location: @rent }
+        format.html{
+        flash[:success] = "Rent created successfully"
+        redirect_to admin_rent_path(@rent)
+        }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @rent.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
       end
     end
   end
@@ -38,10 +39,16 @@ class Admin::RentsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @rent.update(rent_params)
-        format.html { redirect_to admin_rent_url(@rent), notice: "Rent was successfully updated." }
+        format.html { 
+          flash[:success] = "Rent was successfully updated." 
+          redirect_to admin_rent_url(@rent)
+        }
         format.json { render :show, status: :ok, location: @rent }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { 
+          render :edit, 
+          status: :unprocessable_entity 
+        }
         format.json { render json: @rent.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +59,10 @@ class Admin::RentsController < Admin::ApplicationController
     @rent.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_rents_url, notice: "Rent was successfully destroyed." }
+      format.html { 
+        flash[:danger] = "Rent was successfully destroyed." 
+        redirect_to admin_rents_url 
+      }
       format.json { head :no_content }
     end
   end

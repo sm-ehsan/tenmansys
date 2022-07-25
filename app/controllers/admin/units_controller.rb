@@ -26,7 +26,10 @@ class Admin::UnitsController < Admin::ApplicationController
 
     respond_to do |format|
       if @unit.save
-        format.html { redirect_to admin_unit_url(@unit), notice: "Unit was successfully created." }
+        format.html { 
+          flash[:success] = "Unit was successfully created." 
+          redirect_to admin_unit_url(@unit)
+        }
         format.json { render :show, status: :created, location: @unit }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +42,10 @@ class Admin::UnitsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @unit.update(unit_params)
-        format.html { redirect_to admin_unit_url(@unit), notice: "Unit was successfully updated." }
+        format.html { 
+          flash[:success] = "Unit was successfully updated." 
+          redirect_to admin_unit_url(@unit) 
+        }
         format.json { render :show, status: :ok, location: @unit }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +59,10 @@ class Admin::UnitsController < Admin::ApplicationController
     @unit.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_units_url, notice: "Unit was successfully destroyed." }
+      format.html { 
+        flash[:danger] = "Unit was successfully destroyed." 
+        redirect_to admin_units_url
+      }
       format.json { head :no_content }
     end
   end

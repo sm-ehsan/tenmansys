@@ -1,15 +1,5 @@
 <%= form_with(model: [:admin, tenant]) do |form| %>
-  <% if tenant.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
-
-      <ul>
-        <% tenant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', obj: @tenant %>
 
   <div class="mb-2">
     <%= form.label :name, 'Tenant Name', class: 'form-label fs-8 mb-1' %>

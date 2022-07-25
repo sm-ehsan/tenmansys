@@ -21,19 +21,8 @@
   </head>
 
   <body class="admin <%= controller.controller_name %>_<%= controller.action_name %>">
-    <% if notice %>
-      <div class='alert alert-success alert-dismissible fade show'>
-        <%= notice %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class='alert alert-danger alert-dismissible fade show'>
-        <%= alert %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <% end %>
-
+    <%= render 'layouts/messages' %>
+    
     <%= yield %>
   </body>
 </html>

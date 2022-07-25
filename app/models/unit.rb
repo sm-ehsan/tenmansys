@@ -7,4 +7,6 @@ class Unit < ApplicationRecord
   
   scope :occupied, -> { where(:status => 0)}
   scope :vacent, -> { where(:status => 1)}
+
+  validates :name, presence: true
 end

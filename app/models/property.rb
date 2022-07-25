@@ -9,4 +9,7 @@ class Property < ApplicationRecord
     country = self.country
     ISO3166::Country[country]
   end
+
+  validates :name, presence: true
+  validates :landlord, presence: true
 end
