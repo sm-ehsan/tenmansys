@@ -21,8 +21,11 @@
   </head>
 
   <body class="admin <%= controller.controller_name %>_<%= controller.action_name %>">
+    <%= render "shared/backend/header" %>
     <%= render 'layouts/messages' %>
     
     <%= yield %>
+
+    <%= render "shared/backend/footer" %>
   </body>
 </html>
