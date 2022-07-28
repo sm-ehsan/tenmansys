@@ -1,65 +1,57 @@
 version: 2.1
 
-executors:
-  default:
-    working_directory: ~/tenmansys_postgresql
-    docker:
-      - image: circleci/ruby:3.1.2
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_PATH: vendor/bundle
-          BUNDLE_RETRY: 3
-          BUNDLER_VERSION: 2.0.1
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          PG_HOST: 127.0.0.1
-          PGUSER: tenmansys
-      - image: circleci/postgres:12.0
-        environment:
-          POSTGRES_DB: tenmansys_test
-          POSTGRES_USER: tenmansys
-
-commands:
-  configure_bundler:
-    description: Configure bundler
-    steps:
-      - run:
-          name: Configure bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
+orbs:
+  ruby: circleci/ruby@1.8.0
+  node: circleci/node@2
 
 jobs:
   build:
-    executor: default
+    docker:
+      - image: cimg/ruby:3.1.2-node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - tenmansys_postgresql-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - tenmansys_postgresql-
-      - configure_bundler
-      - run:
-          name: Install bundle
-          command: bundle install
+      - ruby/install-deps
+      # Store bundle cache
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+  test:
+    parallelism: 3
+    docker:
+      - image: cimg/ruby:3.1.2-node
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_DB: rails_blog_test
+          POSTGRES_PASSWORD: ""
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: circleci-demo-ruby
+      PGPASSWORD: ""
+      RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
-          name: Setup DB
-          command: bundle exec rails db:create db:schema:load --trace
-      - save_cache:
-          key: tenmansys_postgresql-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - ./tenmansys_postgresql
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+      # Run rspec in parallel
+      - ruby/rspec-test
+      - ruby/rubocop-check
 
 workflows:
   version: 2
-  integration:
+  build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
