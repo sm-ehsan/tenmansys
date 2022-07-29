@@ -1,1 +1,3 @@
-json.partial! "tenants/tenant", tenant: @tenant
+# frozen_string_literal: true
+
+json.partial! 'tenants/tenant', tenant: @tenant

@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class Rent < ApplicationRecord
   belongs_to :user
   belongs_to :tenant
   before_save :calculate_total
   belongs_to :property
 
-  enum paymentmode: [:bank, :cash, :bkash, :nagad, :rocket, :cellfin]
-  enum status: [:due, :paid]
+  enum paymentmode: %i[bank cash bkash nagad rocket cellfin]
+  enum status: %i[due paid]
 
   def calculate_total
-    renttotal = self.rent + self.gassbill + self.lightbill + self.servicecharge + self.othercharges
+    renttotal = rent + gassbill + lightbill + servicecharge + othercharges
     self.total = renttotal
   end
 

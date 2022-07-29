@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :admin do
     resources :expenses
@@ -8,5 +10,5 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
   end
   devise_for :users
-  root "pages#index"
+  root 'pages#index'
 end

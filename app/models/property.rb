@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Property < ApplicationRecord
   has_many :expenses
   has_many :tenants
