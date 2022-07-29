@@ -1,6 +1,7 @@
 ![alt text](https://github.com/sm-ehsan/tenmansys/blob/main/app/assets/images/logo-new.png?raw=true)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys/badge)](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys)
+[![CodeQL](https://github.com/sm-ehsan/tenmansys/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sm-ehsan/tenmansys/actions/workflows/codeql-analysis.yml)
 
 ### Tenmansys
 

@@ -62,6 +62,22 @@
 							<li class="nav-item">
 								<%= link_to 'Help & Support', '', class: 'nav-link' %>
 							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Quick Links
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<%= link_to 'Nesco', 'https://postpaid.nesco.gov.bd/', class: 'dropdown-item', target: '_blank' %>
+									</li>
+									<li>
+										<%= link_to 'WASA', 'http://139.162.120.207/wasa_billing/public/customer/bill/portal', class: 'dropdown-item', target: '_blank' %>
+									</li>
+									<li>
+										<%= link_to 'PGCL', 'https://rsm.pgcl.org.bd/PGCL_WEB/webview.action', class: 'dropdown-item', target: '_blank' %>
+									</li>
+								</ul>
+							</li>
 						</ul>
 						<form class="d-flex" role="search">
 							<input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
