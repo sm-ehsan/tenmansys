@@ -1,6 +1,8 @@
+![alt text](https://github.com/sm-ehsan/tenmansys/blob/main/app/assets/images/logo-new.png?raw=true)
+
 [![CodeFactor](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys/badge)](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys)
 
-# tenmansys
+### Tenmansys
 
 Tenmansys [Tenant Management Syatem] is a tenant management system, build on tuby on rails 7. 
 with tenmansys you can easily manage your tenant rent, utility bills and lot more.
@@ -15,17 +17,11 @@ Things you may want to cover:
 * Database [postgresql]
 
 
-# Application Organogram
-  * User [User, Admin]
+### Application Organogram
+  * User
   * Property
-    * Property Name & Address
-    * Floor
-      * Units
-        * Name
-        * Description
-        * Amenities
-          * Single Room
-          * Double Room
-          * Tripple Room
-    * Tenant
-    * 
+  * Units
+  * Tenant
+  * Rent[Invoice]
+  * Expense
+  * Report
