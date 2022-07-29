@@ -22,6 +22,14 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Security tools
+  gem 'brakeman'
+  gem 'bundler-audit'
+  gem 'ruby_audit'
+  # Linting
+  gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 group :development do
