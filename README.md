@@ -5,7 +5,7 @@
 
 ### Tenmansys
 
-Tenmansys [Tenant Management Syatem] is a tenant management system, build on tuby on rails 7. 
+Tenmansys is a tenant management system, build on ruby on rails 7.
 with tenmansys you can easily manage your tenant rent, utility bills and lot more.
 </br>
 </br>
