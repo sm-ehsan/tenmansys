@@ -16,9 +16,9 @@
 						<%= image_tag 'sm-ehsan.jpeg', width: 32, height: 32 %>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end text-small mt-1" aria-labelledby="dropdownUser1" style="">
-						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li>
+							<%= link_to 'Profile', edit_user_registration_path, class: 'dropdown-item' %>
+						</li>
 						<li><hr class="dropdown-divider"></li>
 						<% if user_signed_in? %>
 							<li>
