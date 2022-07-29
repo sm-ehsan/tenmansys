@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys/badge)](https://www.codefactor.io/repository/github/sm-ehsan/tenmansys)
+
 # tenmansys
 
 Tenmansys [Tenant Management Syatem] is a tenant management system, build on tuby on rails 7. 
