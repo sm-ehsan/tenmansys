@@ -7,7 +7,14 @@
         <div class="col">
           <div class="card">
             <div class="card-header bg-white shadow-sm">
-              <h3 class="card-title fs-6 text-muted my-2">Rent List</h3>
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title fs-6 text-muted my-2">Rent List</h3>
+
+                <%= form_with(url: admin_rents_path, method: :get, class: 'input-group w-25') do |f| %>
+                  <%= f.text_field :query, class: 'form-control form-control-sm' %>
+                  <%= f.submit 'Search', class: 'btn btn-sm btn-success' %>
+                <% end %>
+              </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">

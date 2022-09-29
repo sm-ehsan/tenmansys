@@ -32,14 +32,14 @@
                       <tr>
                         <td>
                           <span class="text-muted">
-                            TID-<%= tenant.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= tenant.present? ? "%.3i"%(tenant.id + 1) : "%.2i"%(1) %>
+                            TID-<%= tenant.property.name.split.map{|i| i[0,1].upcase}.join %>-<%= tenant.present? ? "%.3i"%(tenant.id) : "%.2i"%(1) %>
                           </span>
                         </td>
                         <td><%= tenant.name %></td>
                         <td><%= tenant.peraddrline1 %></td>
                         <td><%= tenant.mobile %></td>
                         <td><%= tenant.unit.name %></td>
-                        <td><%= tenant.entrydate.strftime('%b %d, %Y') %></td>
+                        <td><%= tenant.entrydate.present? ? tenant.entrydate.strftime('%b %d, %Y') : "" %></td>
                         <td><%= tenant.rentpermonth %></td>
                         <td>
                           <% if tenant.status == 'active' %>
