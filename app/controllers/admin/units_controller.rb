@@ -6,7 +6,7 @@ module Admin
 
     # GET /units or /units.json
     def index
-      @pagy, @units = pagy(Unit.all.order('Created_at ASC'), items: 10)
+      @pagy, @units = pagy(Unit.all.order('Created_at ASC'), items: 20)
     end
 
     # GET /units/1 or /units/1.json

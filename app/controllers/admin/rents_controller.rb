@@ -6,7 +6,7 @@ module Admin
 
     # GET /rents or /rents.json
     def index
-      @pagy, @rents = pagy(Rent.all.order('Created_at DESC'), items: 10)
+      @pagy, @rents = pagy(Rent.all.order('Created_at DESC'), items: 20)
     end
 
     # GET /rents/1 or /rents/1.json

@@ -3,21 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= link_to root_path do %>
-    <%= image_tag "logo-new.png", alt: 'logo', width: 175, height: 30, class: 'mb-4' %>
+    <%#= image_tag "logo-new.png", alt: 'logo', width: 175, height: 30, class: 'mb-4' %>
   <% end %>
-  
+
   <div class="form-floating">
     <%= f.text_field :username, autofocus: true, class: 'form-control',  placeholder: 'name@example.com' %>
     <%= f.label :username %>
   </div>
-  
+
   <div class="form-floating">
     <%= f.email_field :email, autocomplete: "email", class: 'form-control',  placeholder: 'name@example.com' %>
     <%= f.label :email %>
   </div>
 
   <div class="form-floating">
-    
+
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'password' %>
     <%= f.label :password %>
   </div>

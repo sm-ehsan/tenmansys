@@ -6,7 +6,7 @@ module Admin
 
     # GET /tenants or /tenants.json
     def index
-      @pagy, @tenants = pagy(Tenant.all.order('Created_at desc'), items: 10)
+      @pagy, @tenants = pagy(Tenant.all.order('Created_at desc'), items: 20)
     end
 
     # GET /tenants/1 or /tenants/1.json
