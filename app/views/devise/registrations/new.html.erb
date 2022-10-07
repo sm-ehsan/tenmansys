@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= link_to root_path do %>
-    <%#= image_tag "logo-new.png", alt: 'logo', width: 175, height: 30, class: 'mb-4' %>
+    <%= image_tag "logo-new.png", alt: 'logo', width: 175, height: 30, class: 'mb-4' %>
   <% end %>
 
   <div class="form-floating">
