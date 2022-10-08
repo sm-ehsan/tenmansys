@@ -32,18 +32,10 @@
                         </td>
                         <td><%= unit.name %></td>
                         <td class="d-none d-md-block"><%= unit.property.name %></td>
-                        <!--
+
                         <td>
                           <% if unit.status == 'occupied' %>
                             <span class="badge bg-success">Occupied</span>
-                          <% else %>
-                            <span class="badge bg-danger">Vacent</span>
-                          <% end %>
-                        </td>
-                        -->
-                        <td>
-                          <% if unit.tenant.present? && unit.tenant.status == 'active' %>
-                            <span class="badge bg-success">Engaged</span>
                           <% else %>
                             <span class="badge bg-danger">Vacent</span>
                           <% end %>
