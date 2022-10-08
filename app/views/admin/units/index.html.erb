@@ -42,7 +42,7 @@
                         </td>
                         -->
                         <td>
-                          <% if unit.tenant.status == 'active' %>
+                          <% if unit.tenant.present? && unit.tenant.status == 'active' %>
                             <span class="badge bg-success">Engaged</span>
                           <% else %>
                             <span class="badge bg-danger">Vacent</span>
