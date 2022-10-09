@@ -1,4 +1,4 @@
-<main class="main" id="top">
+<main class="main h-100" id="top">
   <%= render 'shared/backend/page_header' %>
 
   <seaction>
@@ -6,54 +6,57 @@
       <div class="row mb-3">
         <div class="col">
           <div class="card">
-
             <div class="card-header bg-white shadow-sm">
               <h3 class="card-title fs-6 text-muted my-2">Property List</h3>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <div id="properties">
-                  <table class="table table-striped table-hover fs-8 align-middle">
-                    <thead>
-                      <tr>
-                        <th class="w-1">ID. No.</th>
-                        <th>Property</th>
-                        <th>Address</th>
-                        <th>City</th>
-                        <th>Contact</th>
-                        <th>Landlord</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @properties.each do |property| %>
-                      <tr>
-                        <td>
-                          <span class="text-muted"><%= property.id %></span>
-                        </td>
-                        <td><%= property.name %></td>
-                        <td><%= property.addrline1 %></td>
-                        <td><%= property.city %></td>
-                        <td><%= property.contactno %></td>
-                        <td>
+              <div class="row">
+                <% @properties.each do |property| %>
+                <div class="col-md-6">
+                  <div class="card text-start shadow-sm border-0 my-3 bg-light">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <%= link_to property.name, admin_property_path(property) %>
+                      </h4>
+                      <p class="card-text">
+                        <div class="fs-8">
+                          <i class="fa-solid fa-building-user me-2"></i>
                           <%= property.landlord %>
-                        </td>
-                        <td class="text-end">
-                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          <% end %>
-                          <div class="dropdown-menu dropdown-menu-end fs-8">
-                            <%= link_to 'Details', admin_property_path(property), class: 'dropdown-item' %>
-                            <%= link_to 'Edit', edit_admin_property_path(property), class: 'dropdown-item' %>
-                          </div>
-                        </td>
-                      </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+                        </div>
+
+                        <div class="fs-8">
+                          <i class="fa-solid fa-map me-2"></i>
+                          <%= property.addrline1 %>,
+                          <%= property.city %>,
+                        </div>
+
+                        <div class="fs-8">
+                          <i class="fa-solid fa-phone me-2"></i>
+                          <%= property.contactno %>
+                        </div>
+                      </p>
+                      <hr>
+
+                      <div class="row fs-8">
+                        <div class="col">
+                          Total Units
+                          <span class="badge bg-secondary"><%= property.units.count  %></span>
+                        </div>
+                        <div class="col">
+                          Occupied
+                          <span class="badge bg-success"><%= property.units.occupied.count  %></span>
+                        </div>
+                        <div class="col">
+                          Vacent
+                          <span class="badge bg-danger"><%= property.units.vacent.count  %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <% end %>
               </div>
             </div>
-
           </div>
         </div>
       </div>

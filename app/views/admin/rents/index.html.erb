@@ -38,7 +38,7 @@
                       <tr>
                         <td>
                           <span class="text-muted">
-                            RID-<%= rent.present? ? "%.6i"%(rent.id + 1) : "%.6i"%(1) %>
+                            RID-<%= rent.present? ? "%.6i"%(rent.id) : "%.6i"%(1) %>
                           </span>
                         </td>
                         <td><%= rent.tenant.name %></td>
@@ -69,13 +69,7 @@
                           <%= rent.paymentdate.strftime('%d %b, %Y') %>
                         </td>
                         <td class="text-end">
-                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          <% end %>
-                          <div class="dropdown-menu dropdown-menu-end fs-8">
-                            <%= link_to 'Details', admin_rent_path(rent), class: 'dropdown-item' %>
-                            <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
-                          </div>
+                          <%= link_to 'Details', admin_rent_path(rent) %>
                         </td>
                       </tr>
                       <% end %>

@@ -41,13 +41,7 @@
                           <% end %>
                         </td>
                         <td class="text-end">
-                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          <% end %>
-                          <div class="dropdown-menu dropdown-menu-end fs-8">
-                            <%= link_to 'Details', admin_unit_path(unit), class: 'dropdown-item' %>
-                            <%= link_to 'Edit', edit_admin_unit_path(unit), class: 'dropdown-item' %>
-                          </div>
+                          <%= link_to 'Details', admin_unit_path(unit) %>
                         </td>
                       </tr>
                       <% end %>

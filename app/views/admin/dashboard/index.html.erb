@@ -9,7 +9,7 @@
           <h2 class="fs-7 fw-bold">Dashboard</h2>
         </div>
         <!-- Page title actions -->
-        <%# 
+        <%#
         <div class="col-12 col-md-auto ms-auto d-flex align-items-center">
           <div class="btn-list">
             <span class="">
@@ -19,7 +19,7 @@
               Create new report
             </a>
           </div>
-        </div> 
+        </div>
         %>
       </div>
     </div>
@@ -36,7 +36,7 @@
                 <h5 class="card-title fs-6 text-muted">Sales</h5>
                 <h6 class="card-subtitle fs-4 mb-2">75%</h6>
               </div>
-              
+
               <div class="d-flex justify-content-between">
                 <p class="fs-8 text-muted mb-0">Conversion Rate</p>
 
@@ -56,7 +56,7 @@
                 <h5 class="card-title fs-6 text-muted">Sales</h5>
                 <h6 class="card-subtitle fs-4 mb-2">75%</h6>
               </div>
-              
+
               <div class="d-flex justify-content-between">
                 <p class="fs-8 text-muted mb-0">Conversion Rate</p>
 
@@ -76,7 +76,7 @@
                 <h5 class="card-title fs-6 text-muted">Sales</h5>
                 <h6 class="card-subtitle fs-4 mb-2">75%</h6>
               </div>
-              
+
               <div class="d-flex justify-content-between">
                 <p class="fs-8 text-muted mb-0">Conversion Rate</p>
 
@@ -96,7 +96,7 @@
                 <h5 class="card-title fs-6 text-muted">Sales</h5>
                 <h6 class="card-subtitle fs-4 mb-2">75%</h6>
               </div>
-              
+
               <div class="d-flex justify-content-between">
                 <p class="fs-8 text-muted mb-0">Conversion Rate</p>
 
@@ -115,7 +115,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-archway display-5 text-primary"></i>
                 </div>
@@ -133,7 +133,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-building-un display-5 text-primary"></i>
                 </div>
@@ -151,7 +151,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-building-user display-5 text-primary"></i>
                 </div>
@@ -167,7 +167,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
                 </div>
@@ -189,7 +189,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-circle-exclamation display-5 text-danger"></i>
                 </div>
@@ -205,7 +205,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-user-shield display-5 text-warning"></i>
                 </div>
@@ -221,7 +221,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
                 </div>
@@ -239,6 +239,24 @@
             </div>
           </div>
         </div>
+
+        <div class="col-md-3">
+          <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <i class="fa-solid fa-screwdriver-wrench display-5 text-primary"></i>
+                </div>
+                <div class="col">
+                  <div class="fs-8 text-muted">Total Maintanance</div>
+                  <div class="fs-7 fw-bold">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -249,7 +267,7 @@
         <div class="col">
           <div class="card">
             <div class="card-header bg-white shadow-sm">
-              <h3 class="card-title fs-6 text-muted my-2">Transaction List</h3>
+              <h3 class="card-title fs-6 text-muted my-2">Last 20 Transaction List</h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -271,7 +289,7 @@
                     <tr>
                       <td>
                         <span class="text-muted">
-                          RID-<%= rent.present? ? "%.6i"%(rent.id + 1) : "%.6i"%(1) %>
+                          RID-<%= rent.present? ? "%.6i"%(rent.id) : "%.6i"%(1) %>
                         </span>
                       </td>
                       <td><%= rent.tenant.name %></td>
@@ -287,24 +305,13 @@
                       </td>
                       <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
                       <td class="text-end">
-                        <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
-                          <i class="fa-solid fa-ellipsis-vertical"></i>
-                        <% end %>
-                        <div class="dropdown-menu dropdown-menu-end fs-8">
-                          <%= link_to 'Details', admin_rent_path(rent), class: 'dropdown-item' %>
-                          <%= link_to 'Edit', edit_admin_rent_path(rent), class: 'dropdown-item' %>
-                        </div>
+                        <%= link_to 'Details', admin_rent_path(rent) %>
                       </td>
                     </tr>
                     <% end %>
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            <div class="card-footer d-flex align-items-center justify-content-between">
-              <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
-              <%== pagy_bootstrap_nav(@pagy) %>
             </div>
           </div>
         </div>

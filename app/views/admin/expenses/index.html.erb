@@ -42,13 +42,7 @@
                         </td>
                         <td><%= expense.amount %></td>
                         <td class="text-end">
-                          <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          <% end %>
-                          <div class="dropdown-menu dropdown-menu-end fs-8">
-                            <%= link_to 'Details', admin_expense_path(expense), class: 'dropdown-item', data: { turbo_frame: "_top" } %>
-                            <%= link_to 'Edit', edit_admin_expense_path(expense), class: 'dropdown-item', data: { turbo_frame: "_top" } %>
-                          </div>
+                          <%= link_to 'Details', admin_expense_path(expense), data: { turbo_frame: "_top" } %>
                         </td>
                       </tr>
                       <% end %>

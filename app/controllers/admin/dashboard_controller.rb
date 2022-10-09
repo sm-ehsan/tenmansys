@@ -3,7 +3,7 @@
 module Admin
   class DashboardController < Admin::ApplicationController
     def index
-      @pagy, @rents = pagy(Rent.all.order('created_at desc'), items: 10)
+      @rents = Rent.limit(20).order('created_at desc')
       @tenants = Tenant.all
       @units = Unit.all
       @properties = Property.all
