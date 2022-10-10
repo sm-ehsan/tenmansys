@@ -276,9 +276,9 @@
                     <tr>
                       <th class="w-1">ID. No.</th>
                       <th>Client</th>
-                      <th>Contact No.</th>
+                      <th class="d-none d-md-table-cell">Contact No.</th>
                       <th>Rent Month</th>
-                      <th>Payment Date</th>
+                      <th class="d-none d-md-table-cell">Payment Date</th>
                       <th>Status</th>
                       <th>Amount</th>
                       <th></th>
@@ -293,9 +293,9 @@
                         </span>
                       </td>
                       <td><%= rent.tenant.name %></td>
-                      <td><%= rent.tenant.mobile %></td>
+                      <td class="d-none d-md-table-cell"><%= rent.tenant.mobile %></td>
                       <td><%= rent.rentmonth.strftime('%b %Y') %></td>
-                      <td><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
+                      <td class="d-none d-md-table-cell"><%= rent.paymentdate.strftime('%b %d, %Y') %></td>
                       <td>
                         <% if rent.status == 'paid' %>
                           <span class="badge bg-success me-1">Paid</span>

@@ -18,11 +18,11 @@
                       <tr>
                         <th class="w-1">ID. No.</th>
                         <th>Name</th>
-                        <th>Address</th>
-                        <th>mobile</th>
+                        <th class="d-none d-md-table-cell">Address</th>
+                        <th class="d-none d-md-table-cell">mobile</th>
                         <th>Unit</th>
-                        <th>entrydate</th>
-                        <th>RPM</th>
+                        <th class="d-none d-md-table-cell">entrydate</th>
+                        <th class="d-none d-md-table-cell">RPM</th>
                         <th>Status</th>
                         <th class="text-center">Action</th>
                       </tr>
@@ -36,11 +36,11 @@
                           </span>
                         </td>
                         <td><%= tenant.name %></td>
-                        <td><%= tenant.peraddrline1 %></td>
-                        <td><%= tenant.mobile %></td>
+                        <td class="d-none d-md-table-cell"><%= tenant.peraddrline1 %></td>
+                        <td class="d-none d-md-table-cell"><%= tenant.mobile %></td>
                         <td><%= tenant.unit.name %></td>
-                        <td><%= tenant.entrydate.present? ? tenant.entrydate.strftime('%b %d, %Y') : "" %></td>
-                        <td><%= tenant.rentpermonth %></td>
+                        <td class="d-none d-md-table-cell"><%= tenant.entrydate.present? ? tenant.entrydate.strftime('%b %d, %Y') : "" %></td>
+                        <td class="d-none d-md-table-cell"><%= tenant.rentpermonth %></td>
                         <td>
                           <% if tenant.status == 'active' %>
                             <span class="badge bg-success">Active</span>

@@ -26,7 +26,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-money-check-dollar display-5 text-primary"></i>
                 </div>
@@ -48,7 +48,7 @@
         <!--<div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-building-user display-5 text-success"></i>
                 </div>
@@ -64,7 +64,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-user-shield display-5 text-warning"></i>
                 </div>
@@ -80,7 +80,7 @@
         <div class="col-md-3">
           <div class="card mb-2 shadow-sm">
             <div class="card-body">
-              <div class="row align-items-center">  
+              <div class="row align-items-center">
                 <div class="col-auto">
                   <i class="fa-solid fa-circle-exclamation display-5 text-danger"></i>
                 </div>
@@ -99,8 +99,8 @@
   <seaction>
     <div class="container">
       <div class="row mt-3 mb-5">
-        <div class="col">
-          <div class="card shadow-sm">
+        <div class="col-md-6">
+          <div class="card shadow-sm mb-3">
             <div class="card-body">
               <div class="row fs-8">
                 <div class="col-md-4"><strong>Name</strong></div>
@@ -142,8 +142,8 @@
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
+        <div class="col-md-6">
+          <div class="card shadow-sm mb-3">
             <div class="card-body">
               <div class="row">
                 <div class="col-md-4"><strong>Entry Date</strong></div>
@@ -207,7 +207,7 @@
       <div class="row mb-3">
         <div class="col">
           <div class="card">
-            
+
             <div class="card-header bg-white shadow-sm">
               <h3 class="card-title fs-6 text-muted my-2">Transaction List</h3>
             </div>
@@ -242,7 +242,7 @@
                         <% end %>
                       </td>
                       <td><%= number_to_currency(rent.total, unit: 'BDT. ') %></td>
-                      
+
                       <td class="text-end">
                         <%= link_to '', class: 'badge text-primary', 'data-bs-boundary': "viewport", 'data-bs-toggle': 'dropdown' do %>
                           <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -261,7 +261,7 @@
 
             <div class="card-footer d-flex align-items-center justify-content-between">
               <p class="m-0 text-muted fs-8">Showing <span>1</span> to <span>5</span> of <span>5</span> entries</p>
-              
+
               <nav aria-label="Page navigation example">
                 <ul class="pagination mb-0 fs-8">
                   <li class="page-item"><a class="page-link" href="#">Prev.</a></li>

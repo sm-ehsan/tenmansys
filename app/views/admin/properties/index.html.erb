@@ -1,4 +1,4 @@
-<main class="main h-100" id="top">
+<main class="main" id="top">
   <%= render 'shared/backend/page_header' %>
 
   <seaction>
@@ -39,16 +39,16 @@
 
                       <div class="row fs-8">
                         <div class="col">
-                          Total Units
-                          <span class="badge bg-secondary"><%= property.units.count  %></span>
+                          <div>Total Units</div>
+                          <div class="badge bg-secondary"><%= property.units.count  %></div>
                         </div>
                         <div class="col">
-                          Occupied
-                          <span class="badge bg-success"><%= property.units.occupied.count  %></span>
+                          <div>Occupied</div>
+                          <div class="badge bg-success"><%= property.units.occupied.count  %></div>
                         </div>
                         <div class="col">
-                          Vacent
-                          <span class="badge bg-danger"><%= property.units.vacent.count  %></span>
+                          <div>Vacent</div>
+                          <div class="badge bg-danger"><%= property.units.vacent.count  %></div>
                         </div>
                       </div>
                     </div>

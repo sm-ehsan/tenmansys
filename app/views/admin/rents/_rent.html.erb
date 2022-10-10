@@ -1,21 +1,21 @@
 <div id="<%= dom_id rent %>">
-  <div class="container">
+  <div class="">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="d-flex flex-column ms-3 my-2">
-                  <span class="font-weight-bold">Rent Details</span> 
+                <div class="d-flex flex-column ms-3 my-2 fs-8">
+                  <span class="font-weight-bold">Rent Details</span>
                   <small>INV-<%= (rent.present? ? ("%.3i" %(rent.id + 1)) : "%.3i" %(1)) %></small>
                 </div>
-                
+
                 <hr class="my-0">
-                
+
                 <div class="table-responsive p-2">
-                  <table class="table table-borderless mb-0">
+                  <table class="table table-borderless mb-0 fs-8">
                     <tbody>
                       <tr class="content">
                         <td class="font-weight-bold">
-                          <%= rent.tenant.name %> 
+                          <%= rent.tenant.name %>
                           <br>
                           <%= rent.tenant.unit.name %>,
                           <br>
@@ -38,11 +38,11 @@
                     </tbody>
                   </table>
                 </div>
-                
+
                 <hr class="my-0">
-                
+
                 <div class="products p-2">
-                  <table class="table table-sm table-striped table-borderless mb-0">
+                  <table class="table table-sm table-striped table-borderless mb-0 fs-8">
                     <thead>
                       <tr class="add">
                         <th>Description</th>
@@ -77,11 +77,11 @@
                     </tbody>
                   </table>
                 </div>
-                
+
                 <hr class="my-0">
-                
+
                 <div class="products p-2">
-                  <table class="table table-borderless mb-0">
+                  <table class="table table-borderless mb-0 fs-8">
                     <tbody>
                       <tr class="add">
                         <td><strong>Total</strong></td>
@@ -94,17 +94,17 @@
                     </tbody>
                   </table>
                 </div>
-                
+
                 <hr class="my-0">
-                
+
                 <div class="address p-2">
-                  <table class="table table-borderless">
+                  <table class="table table-borderless fs-8">
                     <tbody>
                       <tr class="mb-0">
                           <td>Mode Of Payment: <strong><span class="text-uppercase"><%= rent.paymentmode %></span></strong></td>
                       </tr>
                       <tr class="content">
-                          <td> 
+                          <td>
                             <%if rent.bank? %>
                               Bank Name : <%= rent.bankname %>
                               <br>
@@ -125,7 +125,7 @@
 
                 <% if @rent.note? %>
                   <hr class="my-0">
-                  <div class="row p-2">
+                  <div class="row p-2 fs-8">
                     <div class="col">
                       <div class="card bg-light">
                         <div class="card-body">
