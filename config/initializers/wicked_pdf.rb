@@ -28,7 +28,7 @@ WickedPdf.config = {
   #
   # use_xvfb: true,
 
-  orientation: "Landscape", # Portrait
+  orientation: "Portrait", # Landscape
   page_size: "A4",
   lowquality: true,
   zoom: 1,
