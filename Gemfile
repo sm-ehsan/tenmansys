@@ -38,6 +38,7 @@ group :development do
   gem 'web-console'
   # gem "rack-mini-profiler"
   # gem "spring"
+  gem "wkhtmltopdf-binary"
 end
 
 group :test do
@@ -50,4 +51,3 @@ gem 'country_select', '~> 6.0'
 gem 'devise'
 gem 'pagy', '~> 5.10'
 gem 'wicked_pdf'
-gem "wkhtmltopdf-binary"
