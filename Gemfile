@@ -50,4 +50,6 @@ gem 'country_select', '~> 6.0'
 gem 'devise'
 gem 'pagy', '~> 5.10'
 gem 'wicked_pdf'
-gem "wkhtmltopdf-binary"
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+
