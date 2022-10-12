@@ -10,7 +10,18 @@ module Admin
     end
 
     # GET /rents/1 or /rents/1.json
-    def show; end
+    def show
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: [@rent.id, @rent.rentmonth].join('-'),
+                template: "admin/rents/invoice",
+                formats: [:html],
+                disposition: :inline,
+                layout: 'pdf'
+        end
+      end
+    end
 
     # GET /rents/new
     def new

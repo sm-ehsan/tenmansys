@@ -1,0 +1,140 @@
+
+            <table width="100%" style="border-bottom: 1px solid #ddd;">
+              <tbody>
+                <tr>
+                  <th colspan="2" style="text-align: left; border-bottom: 1px solid #ddd; font-family: arial; font-size: 32px; padding-bottom" 20px;">
+                    <span class="font-weight-bold">Rent Details</span><br>
+                    <small>INV-<%= (@rent.present? ? ("%.3i" %(@rent.id + 1)) : "%.3i" %(1)) %></small>
+                    </div>
+                  </th>
+                </tr>
+
+                <tr>
+                  <td style="padding-top: 20px; padding-bottom: 20px; font-size: 20px; font-family: arial; text-align: left">
+                      <%= @rent.tenant.name %>
+                      <br>
+                      <%= @rent.tenant.unit.name %>,
+                      <br>
+                      <%= @rent.tenant.property.name %>, <%= @rent.tenant.property.addrline1 %>
+                      <br>
+                      <%= @rent.tenant.property.addrline2 %>, <%= @rent.tenant.property.city %>
+                      <br>
+                      <%= @rent.tenant.mobile %>
+                  </td>
+
+                  <td style="padding-top: 20px; padding-bottom: 20px; font-size: 20px; font-family: arial; text-align: left; float: right">
+                      Rent Month: <strong><%= @rent.rentmonth.strftime("%b %Y") %></strong>
+                      <br>
+                      Due Date: <strong><%= @rent.duedate.strftime("%b %d, %Y")  %></strong>
+                      <br>
+                      Payment Date: <strong><%= @rent.paymentdate.strftime("%b %d, %Y")  %></strong>
+                      <br>
+                      Status: <strong><%= @rent.status == 'paid' ? 'Paid' : 'Due' %></strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table style=" width: 100%" border="0">
+              <thead>
+                  <tr>
+                    <th width="80%" style="padding: 8px; font-size: 20px; font-family: arial; text-align: left">Description</th>
+                    <th width="20%" style="padding: 8px; font-size: 20px; font-family: arial; text-align: left">Amount</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="content" style="background-color:#efefef">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Rent' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.rent, unit: 'BDT. ') %></td>
+                  </tr>
+                  <tr class="content">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Gass Bill' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.gassbill, unit: 'BDT. ') %></td>
+                  </tr>
+                  <tr class="content" style="background-color:#efefef">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Light Bill' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.lightbill, unit: 'BDT. ') %></td>
+                  </tr>
+                  <tr class="content">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Water Bill' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.waterbill, unit: 'BDT. ') %></td>
+                  </tr>
+                  <tr class="content" style="background-color:#efefef">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Service Charge' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.servicecharge, unit: 'BDT. ') %></td>
+                  </tr>
+                  <tr class="content">
+                      <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong><%= 'Other Charge' %></strong></td>
+                      <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial"><%= number_to_currency(@rent.othercharges, unit: 'BDT. ') %></td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <hr class="my-0">
+
+            <table width="100%">
+              <tbody>
+                  <tr class="add">
+                    <td width="80%" style="padding: 8px; font-size: 20px; font-family: arial"><strong>Total</strong></td>
+                    <td width="20%" style="padding: 8px; font-size: 20px; font-family: arial; text-decoration-line: underline; text-decoration-style: double;;">
+                        <strong style="text-decoration-line: underline; text-decoration-style: double;">
+                          <%= number_to_currency(@rent.total, unit: 'BDT. ') %>
+                        </strong>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <hr class="my-0">
+
+            <%# Mode of payment %>
+            <table width="100%">
+              <tbody>
+                  <tr class="mb-0">
+                      <td style="padding: 8px; font-size: 20px; font-family: arial">Mode Of Payment: <strong><span class="text-uppercase"><%= @rent.paymentmode %></span></strong></td>
+                  </tr>
+                  
+                  <tr class="content">
+                      <td>
+                      <%if @rent.bank? %>
+                          Bank Name : <%= @rent.bankname %>
+                          <br>
+                      <% end %>
+                      <% if @rent.accountnumber? %>
+                      Account Number : <%= @rent.accountnumber %>
+                          <br>
+                          <% end %>
+                      <% if @rent.refnumber? %>
+                          Reference Number : <%= @rent.refnumber %>
+                          <br>
+                      <% end %>
+                      </td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <% if @rent.note? %>
+              <hr class="my-0">
+              <div class="row p-2 fs-8">
+                <div class="col">
+                    <div class="card bg-light">
+                      <div class="card-body" style="padding: 8px; font-size: 20px; font-family: arial">
+                          <p class="card-text"><%= @rent.note %></p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+
+
+            <%# Signature %>
+            <hr class="my-0">
+
+            <table width="100%" style="margin-top: 50px;">
+              <tbody>
+                  <tr>
+                    <td style="padding: 8px; font-size: 20px; font-family: arial;"><strong><span class="text-uppercase">Authorized Sign</span></strong></td>
+                    <td style="padding: 8px; font-size: 20px; font-family: arial; float: right;"><strong><span class="text-uppercase">Receiver Sign</span></strong></td>
+                  </tr>
+              </tbody>
+            </table>

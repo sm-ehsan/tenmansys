@@ -12,7 +12,7 @@
           <div class="btn-list d-flex">
             <%= link_to 'Edit Rent', edit_admin_rent_path, class: 'btn btn-sm btn-primary me-2' %>
             <%= link_to 'Back', admin_rents_path, class: 'btn btn-sm btn-warning me-2' %>
-
+            <%= link_to 'PDF', admin_rent_path(@rent, format: :pdf), class: 'btn btn-sm btn-primary me-2' %>
             <%= button_to "Destroy this rent", admin_rent_path(@rent), method: :delete, class: 'btn btn-sm btn-danger' %>
           </div>
         </div>
