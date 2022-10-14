@@ -14,7 +14,7 @@ module Admin
       respond_to do |format|
         format.html
         format.pdf do
-          render pdf: [@rent.id, @rent.rentmonth].join('-'),
+          render pdf: "invoice",
                 template: "admin/rents/invoice",
                 formats: [:html],
                 disposition: :inline,
