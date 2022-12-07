@@ -148,7 +148,7 @@
               <div class="row">
                 <div class="col-md-4"><strong>Entry Date</strong></div>
                 <div class="col-md-8">
-                  <%= @tenant.entrydate.strftime('%b %d, %Y') %>
+                  <%= @tenant.entrydate? ? @tenant.entrydate.strftime('%b %d, %Y') : 'NA' %>
                 </div>
               </div>
               <hr class="my-2">
