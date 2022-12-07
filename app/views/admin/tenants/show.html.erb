@@ -227,7 +227,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% @tenant.rents.each do |rent| %>
+                    <% @tenant.rents.each_with_index do |rent| %>
                     <tr>
                       <td><span class="text-muted"><%= rent.id %></span></td>
                       <td><%= rent.tenant.name %></td>
